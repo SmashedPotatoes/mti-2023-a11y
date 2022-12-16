@@ -1,5 +1,11 @@
 # Nile
 
+## Auteurs
+- [Tony Heng](https://github.com/TonyHg)
+- [Marvin Libam](https://github.com/reddcarp)
+- [Melchior Lozé](https://github.com/HydroMesange)
+- [William Te](https://github.com/Hichida)
+
 ## Le projet
 
 Ceci est le projet d'évaluation du cours d'accessibilité du web pour les MTI 2023. Ce projet se fait en groupes de 3 à 4
