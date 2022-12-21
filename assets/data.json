@@ -5,12 +5,7 @@
       "picture": "https://m.media-amazon.com/images/I/41frifnwF2L._AC_UF452,452_FMjpg_.jpg",
       "manufacturer": "HP",
       "price": 100,
-      "categories": [
-        "Video Games",
-        "Computers & Accessories",
-        "Electronics",
-        "Office"
-      ],
+      "categories": ["Video Games", "Computers & Accessories", "Electronics", "Office"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 3
@@ -20,10 +15,7 @@
       "picture": "https://m.media-amazon.com/images/I/41YJ2bC7XxL._AC_UF452,452_FMjpg_.jpg",
       "manufacturer": "Samsung",
       "price": 450,
-      "categories": [
-        "Video Games",
-        "Electronics"
-      ],
+      "categories": ["Video Games", "Electronics"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 4.5
@@ -33,11 +25,7 @@
       "picture": "https://m.media-amazon.com/images/I/31+1ABMmTxL._AC_UF452,452_FMjpg_.jpg",
       "manufacturer": "NetGear",
       "price": 60,
-      "categories": [
-        "Computers & Accessories",
-        "Electronics",
-        "Office"
-      ],
+      "categories": ["Computers & Accessories", "Electronics", "Office"],
       "seller": "NetGear",
       "estimated-delivery": "2023-01-30",
       "rating": 4
@@ -47,12 +35,7 @@
       "picture": "https://m.media-amazon.com/images/I/416zTzFcbBL._AC_UF452,452_FMjpg_.jpg",
       "manufacturer": "Microsoft",
       "price": 1200,
-      "categories": [
-        "Video Games",
-        "Computers & Accessories",
-        "Electronics",
-        "Office"
-      ],
+      "categories": ["Video Games", "Computers & Accessories", "Electronics", "Office"],
       "seller": "Microsoft",
       "estimated-delivery": "2023-01-13",
       "rating": 4.9
@@ -62,11 +45,7 @@
       "picture": "https://m.media-amazon.com/images/I/31-GZLNP0cL._AC_UF452,452_FMjpg_.jpg",
       "manufacturer": "Apple",
       "price": 10,
-      "categories": [
-        "Computers & Accessories",
-        "Electronics",
-        "Office"
-      ],
+      "categories": ["Computers & Accessories", "Electronics", "Office"],
       "seller": "Apple",
       "estimated-delivery": "2023-01-15",
       "rating": 4.5
@@ -76,11 +55,7 @@
       "picture": "https://m.media-amazon.com/images/I/31K0MnggM0L._AC_UF452,452_FMjpg_.jpg",
       "manufacturer": "Synology",
       "price": 300,
-      "categories": [
-        "Computers & Accessories",
-        "Electronics",
-        "Office"
-      ],
+      "categories": ["Computers & Accessories", "Electronics", "Office"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 1
@@ -90,12 +65,7 @@
       "picture": "https://m.media-amazon.com/images/I/41-rsDnBS-L._AC_UF452,452_FMjpg_.jpg",
       "manufacturer": "XOPPOX",
       "price": 5000,
-      "categories": [
-        "Arts & Crafts",
-        "Computers & Accessories",
-        "Electronics",
-        "Office"
-      ],
+      "categories": ["Arts & Crafts", "Computers & Accessories", "Electronics", "Office"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 4.5
@@ -105,9 +75,7 @@
       "picture": "https://m.media-amazon.com/images/I/A1fno-TO-VL._AC_UY436_FMwebp_QL65_.jpg",
       "manufacturer": "Erin Morgenstern",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 5
@@ -117,9 +85,7 @@
       "picture": "https://m.media-amazon.com/images/I/71jqpBOycFL._AC_UL640_FMwebp_QL65_.jpg",
       "manufacturer": "Erin Morgenstern",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 5
@@ -129,9 +95,7 @@
       "picture": "https://m.media-amazon.com/images/I/71ZB+3qTjOL._AC_UY436_FMwebp_QL65_.jpg",
       "manufacturer": "Ernest Cline",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 3
@@ -141,9 +105,7 @@
       "picture": "https://m.media-amazon.com/images/I/81p9XKirqFL._AC_UY436_FMwebp_QL65_.jpg",
       "manufacturer": "Ernest Cline",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 2
@@ -153,9 +115,7 @@
       "picture": "https://m.media-amazon.com/images/I/91jv5PrFxPL._AC_UY436_FMwebp_QL65_.jpg",
       "manufacturer": "Joe Hill",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 4
@@ -165,9 +125,7 @@
       "picture": "https://m.media-amazon.com/images/I/51f2X-zDDFL._AC_UL640_FMwebp_QL65_.jpg",
       "manufacturer": "Bryan Lee O'Malley",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 4
@@ -177,9 +135,7 @@
       "picture": "https://m.media-amazon.com/images/I/81nHOBeouvL._AC_UY436_FMwebp_QL65_.jpg",
       "manufacturer": "Douglas Adams",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 3
@@ -189,9 +145,7 @@
       "picture": "https://m.media-amazon.com/images/I/91F-2mp2T1L._AC_UY436_FMwebp_QL65_.jpg",
       "manufacturer": "Terry Pratchett",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 3
@@ -201,9 +155,7 @@
       "picture": "https://m.media-amazon.com/images/I/91OCyG8kGaL._AC_UY436_FMwebp_QL65_.jpg",
       "manufacturer": "Terry Pratchett",
       "price": 19.99,
-      "categories": [
-        "Books"
-      ],
+      "categories": ["Books"],
       "seller": "Nile",
       "estimated-delivery": "2023-01-10",
       "rating": 4
@@ -265,11 +217,5 @@
       "deal": 10
     }
   ],
-  "top-sellers": [
-    "The Starless Sea",
-    "The Night Circus",
-    "The Fireman",
-    "Scott Pilgrim",
-    "The Colour of Magic"
-  ]
+  "top-sellers": ["The Starless Sea", "The Night Circus", "The Fireman", "Scott Pilgrim", "The Colour of Magic"]
 }
