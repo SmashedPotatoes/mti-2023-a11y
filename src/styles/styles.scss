@@ -1,0 +1,67 @@
+// Import all of Bootstrap's CSS
+@import "node_modules/bootstrap/scss/bootstrap";
+
+:root {
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/var */
+	--color-primary: #131921;
+	--color-primary-text: white;
+
+	--color-secondary: #232f3e;
+	--color-secondary-text: white;
+
+	--color-accent: #2a3f58;
+
+	--color-deal: #cc0c39;
+	--color-deal-complementary: white;
+
+	--color-call-to-action: #ffd713;
+	--color-call-to-action-complementary: black;
+
+	--card-border: 1px solid #ddd;
+
+	font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+:root * {
+	box-sizing: border-box;
+}
+
+
+/* Some usefull CSS examples */
+
+.grid {
+	display: grid;
+	gap: 1ch;
+
+	/* 4 equal columns */
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.align-items {
+	display: flex;
+}
+
+.picture {
+	object-fit: contain;
+	aspect-ratio: 16/9;
+	width: 100%;
+}
+
+.overlap {
+	/* Remember to set `position: relative` on the parent element */
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+.card {
+	border: var(--card-border);
+	border-radius: 5px;
+	transition: scale 100ms ease-in-out;
+}
+
+.card:hover,
+.card:focus-visible {
+	scale: 1.03;
+	z-index: 1;
+}
