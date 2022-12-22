@@ -26,14 +26,8 @@
       <input type="search" placeholder="Navigate the nile..." aria-placeholder="Navigate the nile..." />
       <button type="submit"><img src={search} alt="search button" /></button>
     </form>
-    <ul>
-      <li>
-        <button><img src={profile} alt="" />Profile</button>
-      </li>
-      <li>
-        <button><img src={cart} alt="" />Cart</button>
-      </li>
-    </ul>
+    <button><img src={profile} alt="" />Profile</button>
+    <button><img src={cart} alt="" />Cart</button>
   </div>
   <nav>
     <ul class="container">
@@ -76,10 +70,6 @@
       }
     }
     ul li {
-      img {
-        margin-right: 0.5rem;
-      }
-
       button {
         transition: color 150ms ease-out;
         &:hover {
@@ -96,6 +86,7 @@
     img {
       width: 1.5rem;
       height: 1.5rem;
+      margin-right: 0.5rem;
     }
   }
 
