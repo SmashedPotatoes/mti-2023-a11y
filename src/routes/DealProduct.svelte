@@ -8,7 +8,7 @@
 </script>
 
 <div class="card position-relative">
-  <img class="picture" src={product.picture} alt={`${product.name} image`} />
+  <img class="picture" src={product.picture} alt="" />
   <div class="product-info">
     <strong>{product.name}</strong>
     <div class="price">
