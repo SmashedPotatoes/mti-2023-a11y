@@ -14,7 +14,7 @@
   ];
 </script>
 
-<header>
+<header role="banner">
   <div>
     <a href="/" class="logo">
       <picture>
