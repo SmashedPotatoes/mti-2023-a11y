@@ -1,6 +1,7 @@
 <script lang="ts">
   import { products, deals, categories } from '$lib/images/data.json';
   import type { DealProductProps } from '$lib/interfaces/products/deal-product-props';
+  import Category from './Category.svelte';
   import DealProduct from './DealProduct.svelte';
 
   const dealProducts: DealProductProps[] = deals.reduce((previous, deal) => {
@@ -19,7 +20,7 @@
 <section>
   <h2 class="sr-only">Deals</h2>
   <div class="grid">
-    {#each dealProducts as dealProduct, index}
+    {#each dealProducts as dealProduct}
       <DealProduct product={dealProduct} />
     {/each}
   </div>
@@ -27,9 +28,11 @@
 <hr />
 <section>
   <h2 class="sr-only">Categories</h2>
-  {#each categories as category, index}
-    <p>{category.name}</p>
-  {/each}
+  <div class="grid">
+    {#each categories as category}
+      <Category {category} />
+    {/each}
+  </div>
 </section>
 <hr />
 <section>
