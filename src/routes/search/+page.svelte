@@ -34,7 +34,9 @@
           </div>
         {/each}
       </fieldset>
-      <button>Filter</button>
+      <div class="float-end">
+        <button type="submit">Filter</button>
+      </div>
     </form>
   </div>
   <div class="col-9">
@@ -49,4 +51,31 @@
 </div>
 
 <style lang="scss">
+  form {
+    fieldset {
+      margin-bottom: 1em !important;
+      border: 1px solid #666 !important;
+      border-radius: 0.2rem;
+      padding: 0 1rem 1rem 1rem !important;
+    }
+
+    legend {
+      padding: 1px 10px !important;
+      float: none;
+      width: auto;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    button {
+      color: var(--color-call-to-action-complementary);
+      background: var(--color-call-to-action);
+      border-radius: 2rem;
+      padding: 0.5rem 3rem;
+    }
+  }
 </style>

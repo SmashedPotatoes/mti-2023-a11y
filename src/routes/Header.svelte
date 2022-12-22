@@ -80,9 +80,6 @@
   }
 
   button {
-    background: none;
-    border: none;
-    color: var(--color-primary-text);
     img {
       width: 1.5rem;
       height: 1.5rem;
