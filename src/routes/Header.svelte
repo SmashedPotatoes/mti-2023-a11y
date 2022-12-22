@@ -1,6 +1,9 @@
 <script>
   import { page } from '$app/stores';
-  import logo from '$lib/images/nile.svg';
+  import logo from '$lib/images/nile-light.svg';
+  import profile from '$lib/images/profile.svg';
+  import search from '$lib/images/search.svg';
+  import cart from '$lib/images/cart.svg';
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Deals', href: '/deals' },
@@ -10,21 +13,21 @@
   ];
 </script>
 
-<header class="d-flex flex-column gap-1">
-  <div class="d-flex flex-row justify-content-between p-2">
-    <a href="/" class="corner">
-      <img src={logo} alt="SvelteKit" />
+<header>
+  <div>
+    <a href="/" class="logo">
+      <img src={logo} alt="Nile" />
     </a>
-    <form>
-      <input type="search" />
-      <button type="submit">Search</button>
+    <form action="#">
+      <input type="search" placeholder="Navigate the nile..." aria-placeholder="Navigate the nile..." />
+      <button type="submit"><img src={search} alt="search button" /></button>
     </form>
     <ul>
       <li>
-        <button>Profile</button>
+        <button><img src={profile} alt="" />Profile</button>
       </li>
       <li>
-        <button>Cart</button>
+        <button><img src={cart} alt="" />Cart</button>
       </li>
     </ul>
   </div>
@@ -44,23 +47,63 @@
 <style lang="scss">
   header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--color-primary);
+    }
+
+    form {
+      flex: 1;
+      display: flex;
+      gap: 1rem;
+      input {
+        flex: 1;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+      }
+    }
+    ul li {
+      img {
+        margin-right: 0.5rem;
+      }
+
+      button {
+        transition: color 150ms ease-out;
+        &:hover {
+          color: var(--color-primary-text-hover);
+        }
+      }
+    }
   }
 
-  .corner {
+  button {
+    background: none;
+    border: none;
+    color: var(--color-primary-text);
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  .logo {
     width: 3em;
     height: 3em;
-  }
-
-  .corner a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
   }
 
-  .corner img {
+  .logo img {
     width: 2em;
     height: 2em;
     object-fit: contain;
@@ -106,7 +149,7 @@
     font-weight: 700;
     font-size: 0.8rem;
     text-decoration: none;
-    transition: color 0.2s linear;
+    transition: color 150ms ease-out;
   }
 
   a:hover {
