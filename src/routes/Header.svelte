@@ -1,10 +1,10 @@
 <script>
   import { page } from '$app/stores';
+  import cart from '$lib/images/cart.svg';
   import logo from '$lib/images/nile-light.svg';
   import logoFallback from '$lib/images/nile.svg';
   import profile from '$lib/images/profile.svg';
   import search from '$lib/images/search.svg';
-  import cart from '$lib/images/cart.svg';
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Deals', href: '/deals' },
