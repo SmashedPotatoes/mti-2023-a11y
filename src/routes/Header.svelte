@@ -1,6 +1,7 @@
 <script>
   import { page } from '$app/stores';
   import logo from '$lib/images/nile-light.svg';
+  import logoFallback from '$lib/images/nile.svg';
   import profile from '$lib/images/profile.svg';
   import search from '$lib/images/search.svg';
   import cart from '$lib/images/cart.svg';
@@ -16,7 +17,10 @@
 <header>
   <div>
     <a href="/" class="logo">
-      <img src={logo} alt="Nile" />
+      <picture>
+        <source srcset={logo} type="image/svg+xml" />
+        <img src={logoFallback} alt="Nile logo" />
+      </picture>
     </a>
     <form action="#">
       <input type="search" placeholder="Navigate the nile..." aria-placeholder="Navigate the nile..." />
