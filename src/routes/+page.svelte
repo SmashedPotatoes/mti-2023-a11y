@@ -1,5 +1,13 @@
-<script>
+<script lang="ts">
   import { products, deals, categories } from '$lib/images/data.json';
+  import type { DealProductProps } from '$lib/interfaces/products/deal-product-props';
+  import DealProduct from './DealProduct.svelte';
+
+  const dealProducts: DealProductProps[] = deals.reduce((previous, deal) => {
+    const product = products.find((product) => product.name === deal.product);
+    if (product) previous.push({ ...product, ...deal });
+    return previous;
+  }, [] as DealProductProps[]);
 </script>
 
 <svelte:head>
@@ -10,9 +18,11 @@
 <h1 class="sr-only">Home</h1>
 <section>
   <h2 class="sr-only">Deals</h2>
-  {#each deals as deal, index}
-    <p>{deal.product}</p>
-  {/each}
+  <div class="grid">
+    {#each dealProducts as dealProduct, index}
+      <DealProduct product={dealProduct} />
+    {/each}
+  </div>
 </section>
 <hr />
 <section>
