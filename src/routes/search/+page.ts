@@ -15,8 +15,9 @@ export function load(event: PageLoadEvent) {
   );
 
   return {
-    manufacturer: manufacturer || '',
-    category: category || '',
+    manufacturer: manufacturer,
+    category: category,
+    maxPrice: maxPrice,
     products: products,
   };
 }

@@ -19,8 +19,8 @@
 </script>
 
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>Nile - Home</title>
+  <meta name="description" content="Nile home page" />
 </svelte:head>
 
 <h1 class="sr-only">Home</h1>

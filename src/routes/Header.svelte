@@ -5,7 +5,6 @@
   import logoFallback from '$lib/images/nile.svg';
   import profile from '$lib/images/profile.svg';
   import search from '$lib/images/search.svg';
-  import { goto } from '$app/navigation';
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Deals', href: '/deals' },
@@ -24,7 +23,14 @@
       </picture>
     </a>
     <form action="/search">
-      <input name="q" type="search" placeholder="Navigate the nile..." aria-placeholder="Navigate the nile..." />
+      <input
+        name="q"
+        type="search"
+        placeholder="Navigate the nile..."
+        aria-placeholder="Navigate the nile..."
+        aria-describedby="search-hint"
+      />
+      <p id="search-hint" class="sr-only">Enter the query to search for a product.</p>
       <button type="submit" aria-label="Search"><img src={search} alt="search button" /></button>
     </form>
     <button><img src={profile} alt="" />Profile</button>

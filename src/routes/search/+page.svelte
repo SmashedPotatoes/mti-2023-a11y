@@ -7,15 +7,22 @@
   let currMaxPrice = maxPrice;
 </script>
 
+<svelte:head>
+  <title>Nile - Search</title>
+  <meta name="description" content="Nile search page" />
+</svelte:head>
+
 <div class="row">
+  <h1 class="sr-only">Search product page</h1>
   <div class="col-3">
     <form>
+      <h2 class="sr-only">Filters</h2>
       <fieldset class="form-group">
         <legend>Manufacturer</legend>
         {#each manufacturers as manufacturer (manufacturer)}
           <div class="form-check">
             <label>
-              <input type="checkbox" name="manufacturer" value={manufacturer} />
+              <input type="checkbox" id="manufacturer-{manufacturer}" name="manufacturer" value={manufacturer} />
               {manufacturer}
             </label>
           </div>
@@ -38,7 +45,7 @@
         {#each categories as category (category.name)}
           <div class="form-check">
             <label>
-              <input type="checkbox" name="category" value={category.name} />
+              <input type="checkbox" id="category-{category.name}" name="category" value={category.name} />
               {category.name}
             </label>
           </div>
