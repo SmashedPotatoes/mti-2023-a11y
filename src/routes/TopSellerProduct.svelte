@@ -17,7 +17,7 @@
   <div class="card-info">
     <strong id={key}>{product.name}</strong>
     <p class="sr-only">{priceToText(product.price)}</p>
-    <p class="price" aria-hidden={true}>{product.price}</p>
+    <p class="price" aria-hidden={true}>{product.price}&euro;</p>
   </div>
   <AddToCartButton onClick={product.onAddToCart} />
 </li>

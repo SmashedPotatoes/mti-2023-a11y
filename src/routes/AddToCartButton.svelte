@@ -14,10 +14,17 @@
     border: none;
     border-radius: 100%;
     padding: 0.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    top: -0.4rem;
-    right: -0.4rem;
+    width: 3rem;
+    height: 3rem;
+    top: -0.6rem;
+    right: -0.6rem;
     left: auto;
+    transition: scale 100ms ease-in-out;
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: var(--color-call-to-action-hover);
+    scale: 1.25;
+    z-index: 1;
   }
 </style>
