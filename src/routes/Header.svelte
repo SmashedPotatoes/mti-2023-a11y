@@ -38,7 +38,7 @@
   </div>
   <nav>
     <ul class="container">
-      {#each navLinks as link}
+      {#each navLinks as link, index (`${link.name}-${index}}`)}
         <li aria-current={$page.url.pathname === link.href}>
           <a href={link.href}>
             {link.name}
