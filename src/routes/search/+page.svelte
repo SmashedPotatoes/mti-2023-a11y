@@ -29,7 +29,7 @@
         {#each categories as category (category.name)}
           <div class="form-check">
             <label>
-              <input type="checkbox" name="category" value={category} />
+              <input type="checkbox" name="category" value={category.name} />
               {category.name}
             </label>
           </div>
