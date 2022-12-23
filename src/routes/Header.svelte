@@ -199,12 +199,12 @@
       display: flex;
       flex-direction: column;
       position: absolute;
-      background: var(--color-accent);
+      background: var(--color-primary);
       z-index: 10;
       padding: 0;
-      border-radius: 0 0 0.5rem 0.5rem;
-      border: var(--color-secondary) 4px solid;
-      border-top: none;
+      border-radius: 0.5rem 0.5rem;
+      margin-top: 0.3rem;
+
       li {
         display: flex;
         width: 100%;
@@ -220,6 +220,9 @@
             background: var(--color-secondary);
           }
         }
+      }
+      li:first-child a {
+        border-radius: 0.5rem 0.5rem 0 0;
       }
       li:last-child a {
         border-radius: 0 0 0.5rem 0.5rem;
