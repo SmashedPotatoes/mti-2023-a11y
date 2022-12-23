@@ -49,7 +49,7 @@
           aria-expanded={profileMenuOpen}><img src={profile} alt="" />Profile</button
         >
         <ul role="menu" aria-label="Profile">
-          <li role="none"><a role="menuitem" href="/profile/">Profile</a></li>
+          <li role="none"><a role="menuitem" href="/profile/profile">Profile</a></li>
           <li role="none"><a role="menuitem" href="/profile/orders">My Orders</a></li>
           <li role="none"><a role="menuitem" href="/profile/settings">Settings</a></li>
         </ul>
