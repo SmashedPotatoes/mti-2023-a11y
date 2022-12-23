@@ -14,7 +14,7 @@
   ];
 </script>
 
-<header role="banner">
+<header>
   <div>
     <a href="/" class="logo">
       <picture>
@@ -38,7 +38,7 @@
   </div>
   <nav>
     <ul class="container">
-      {#each navLinks as link}
+      {#each navLinks as link, index (`${link.name}-${index}}`)}
         <li aria-current={$page.url.pathname === link.href}>
           <a href={link.href}>
             {link.name}
@@ -50,6 +50,37 @@
 </header>
 
 <style lang="scss">
+  .logo {
+    width: 3em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 2em;
+      height: 2em;
+      object-fit: contain;
+    }
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: var(--color-primary-text);
+    margin: 0;
+    padding: 1rem;
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  button:hover {
+    background-color: var(--color-accent);
+  }
+
   header {
     display: flex;
     flex-direction: column;
@@ -58,16 +89,22 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
+      align-items: stretch;
+      padding-left: 1rem;
+      padding-right: 2rem;
       background: var(--color-primary);
+
+      > a {
+        margin: auto;
+      }
     }
 
     form {
       flex: 1;
       display: flex;
-      gap: 1rem;
+      align-items: stretch;
+      gap: 0.5rem;
+      margin: 1rem;
       input {
         flex: 1;
         padding: 0.5rem;
@@ -75,74 +112,50 @@
         border-radius: 0.25rem;
         font-size: 1rem;
       }
-    }
-    ul li {
+
       button {
-        transition: color 150ms ease-out;
-        &:hover {
-          color: var(--color-primary-text-hover);
+        width: fit-content;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 100%;
+
+        img {
+          margin: 0;
         }
       }
     }
   }
 
-  button {
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
-      margin-right: 0.5rem;
-    }
-  }
-
-  .logo {
-    width: 3em;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo img {
-    width: 2em;
-    height: 2em;
-    object-fit: contain;
-  }
-
   nav {
     background: var(--color-accent);
-  }
+    ul {
+      margin: 0 0 0 2rem;
+      > li {
+        display: inline-block;
+        margin: 0 0.5em;
+        a {
+          display: flex;
+          align-items: center;
+          padding: 1rem;
+          color: var(--color-primary-text);
+          border-bottom: 3px solid transparent;
+          font-weight: 700;
+          font-size: 1rem;
+          text-decoration: none;
+          transition: color 150ms ease-out;
+        }
+      }
 
-  ul {
-    margin-top: 1rem;
-    list-style: none;
-  }
+      > li[aria-current='true'] a {
+        border-color: var(--color-primary-text);
+      }
 
-  ul > li {
-    display: inline-block;
-    margin: 0 0.5em;
-  }
-
-  li[aria-current='true'] a {
-    text-decoration: underline var(--color-primary-text);
-    &:hover {
-      text-decoration: underline var(--color-primary-text-hover);
+      > li:hover a {
+        color: var(--color-primary-text-hover);
+        border-color: var(--color-primary-text-hover);
+      }
     }
-  }
-
-  nav a {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding: 0 0.5rem;
-    color: var(--color-primary-text);
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-decoration: none;
-    transition: color 150ms ease-out;
-  }
-
-  a:hover {
-    color: var(--color-primary-text-hover);
-    text-decoration: underline var(--color-primary-text-hover);
   }
 </style>
