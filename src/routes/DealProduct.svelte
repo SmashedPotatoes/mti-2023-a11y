@@ -12,7 +12,7 @@
   <!-- svelte-ignore a11y-missing-content -->
   <a class="overlap" {href} aria-labelledby="product-name" />
   <img class="picture" src={product.picture} alt="" />
-  <div class="product-info">
+  <div class="card-info">
     <strong id="product-name">{product.name}</strong>
     <div class="price">
       <p class="sr-only">Before: {priceToText(product.price)}</p>
@@ -26,14 +26,6 @@
 </li>
 
 <style>
-  .product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    padding: 1rem;
-  }
-
   .price {
     display: flex;
     gap: 0.5rem;

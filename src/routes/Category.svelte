@@ -9,11 +9,5 @@
   <!-- svelte-ignore a11y-missing-content -->
   <a class="overlap" {href} aria-labelledby="category-name" />
   <img class="picture" src={category.picture} alt="" />
-  <strong id="category-name" class="category-name">{category.name}</strong>
+  <strong id="category-name" class="card-info">{category.name}</strong>
 </li>
-
-<style>
-  .category-name {
-    padding: 0.75rem;
-  }
-</style>
