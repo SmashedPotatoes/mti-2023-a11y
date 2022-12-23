@@ -7,7 +7,7 @@
 <div class="app">
   <Header />
 
-  <main>
+  <main class="container">
     <slot />
   </main>
 
@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: aliceblue;
   }
 
   main {
@@ -27,7 +28,6 @@
     flex-direction: column;
     padding: 1rem;
     width: 100%;
-    max-width: 64rem;
     margin: 0 auto;
     box-sizing: border-box;
   }
