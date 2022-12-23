@@ -3,9 +3,9 @@
 
   export let index: number;
   export let category: CategoryProps;
-  export let href: string = '/';
 
   const key = `category-${index}`;
+  const href = `/search?category=${category.name}`;
 </script>
 
 <li class="card position-relative">
