@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { getFilters } from '../../lib/services/Products';
+  import Product from '../Product.svelte';
 
   const { manufacturers, categories } = getFilters();
 </script>
@@ -40,13 +41,11 @@
     </form>
   </div>
   <div class="col-9">
-    <div class="row">
+    <ul class="grid search-grid">
       {#each $page.data.products as product, index (index)}
-        <div class="col-4">
-          {product.name}
-        </div>
+        <Product {product} {index} />
       {/each}
-    </div>
+    </ul>
   </div>
 </div>
 

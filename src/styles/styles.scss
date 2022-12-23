@@ -40,6 +40,11 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
+.grid.search-grid {
+  /* 4 equal columns */
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .grid.category-grid {
   /* 3 equal columns */
   grid-template-columns: repeat(3, 1fr);
