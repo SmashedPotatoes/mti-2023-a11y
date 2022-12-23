@@ -1,14 +1,21 @@
 <script lang="ts">
-  import { products, deals, categories } from '$lib/images/data.json';
+  import { categories, deals, products } from '$lib/images/data.json';
   import type { DealProductProps } from '$lib/interfaces/products/deal-product-props';
+  import type { TopSellerProductProps } from '$lib/interfaces/products/top-seller-product-props';
   import Category from './Category.svelte';
   import DealProduct from './DealProduct.svelte';
+  import TopSellerProduct from './TopSellerProduct.svelte';
 
   const dealProducts: DealProductProps[] = deals.reduce((previous, deal) => {
     const product = products.find((product) => product.name === deal.product);
     if (product) previous.push({ ...product, ...deal });
     return previous;
   }, [] as DealProductProps[]);
+
+  const topSellers: TopSellerProductProps[] = products.reduce((previous, product) => {
+    if (product.categories.includes('Books')) previous.push(product);
+    return previous;
+  }, [] as TopSellerProductProps[]);
 </script>
 
 <svelte:head>
@@ -37,9 +44,11 @@
 <hr />
 <section>
   <h2>Top Sellers</h2>
-  {#each products as product, index}
-    {#if product.categories.includes('Books')}<p>{product.name}</p>{/if}
-  {/each}
+  <ul class="grid">
+    {#each topSellers as topSeller}
+      <TopSellerProduct product={topSeller} />
+    {/each}
+  </ul>
 </section>
 
 <style>
