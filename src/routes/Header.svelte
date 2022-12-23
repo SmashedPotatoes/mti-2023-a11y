@@ -5,6 +5,7 @@
   import logoFallback from '$lib/images/nile.svg';
   import profile from '$lib/images/profile.svg';
   import search from '$lib/images/search.svg';
+  import { goto } from '$app/navigation';
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Deals', href: '/deals' },
@@ -12,6 +13,10 @@
     { name: 'Categories', href: '/categories' },
     { name: 'Sell', href: '/sell' },
   ];
+  let searchQuery = '';
+  function handleSubmit() {
+    goto('/search?q=' + searchQuery ?? '');
+  }
 </script>
 
 <header>
@@ -22,9 +27,14 @@
         <img src={logoFallback} alt="Nile logo" />
       </picture>
     </a>
-    <form action="#">
-      <input type="search" placeholder="Navigate the nile..." aria-placeholder="Navigate the nile..." />
-      <button type="submit"><img src={search} alt="search button" /></button>
+    <form method="POST" on:submit|preventDefault={handleSubmit}>
+      <input
+        bind:value={searchQuery}
+        type="search"
+        placeholder="Navigate the nile..."
+        aria-placeholder="Navigate the nile..."
+      />
+      <button type="submit" aria-label="Search"><img src={search} alt="search button" /></button>
     </form>
     <button><img src={profile} alt="" />Profile</button>
     <button><img src={cart} alt="" />Cart</button>

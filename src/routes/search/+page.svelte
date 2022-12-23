@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { getFilters, getProducts } from '../../lib/services/Products';
+  import { page } from '$app/stores';
+  import { getFilters } from '../../lib/services/Products';
 
   const { manufacturers, categories } = getFilters();
-  const products = getProducts();
 </script>
 
 <div class="row">
@@ -41,7 +41,7 @@
   </div>
   <div class="col-9">
     <div class="row">
-      {#each products as product, index (index)}
+      {#each $page.data.products as product, index (index)}
         <div class="col-4">
           {product.name}
         </div>
