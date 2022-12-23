@@ -27,8 +27,8 @@
 <section>
   <h2 class="sr-only">Deals</h2>
   <ul class="grid">
-    {#each dealProducts as dealProduct}
-      <DealProduct product={dealProduct} />
+    {#each dealProducts as dealProduct, index}
+      <DealProduct {index} product={dealProduct} />
     {/each}
   </ul>
 </section>
@@ -36,8 +36,8 @@
 <section>
   <h2 class="sr-only">Categories</h2>
   <ul class="grid">
-    {#each categories as category}
-      <Category {category} />
+    {#each categories as category, index}
+      <Category {index} {category} />
     {/each}
   </ul>
 </section>
@@ -45,8 +45,8 @@
 <section>
   <h2>Top Sellers</h2>
   <ul class="grid">
-    {#each topSellers as topSeller}
-      <TopSellerProduct product={topSeller} />
+    {#each topSellers as topSeller, index}
+      <TopSellerProduct {index} product={topSeller} />
     {/each}
   </ul>
 </section>
