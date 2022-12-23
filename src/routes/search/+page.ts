@@ -1,5 +1,5 @@
 import type { PageLoadEvent } from './$types';
-import { getProducts } from '../../lib/services/Products';
+import { getProducts } from '../../lib/services/products';
 
 export function load(event: PageLoadEvent) {
   const q = event.url.searchParams.get('q');

@@ -1,5 +1,5 @@
 import { products, deals, categories } from '$lib/images/data.json';
-import type { Category, Deal, Filters, Product } from '../types/Product';
+import type { Category, Deal, Filters, Product } from '../types/product';
 
 export const getProducts: () => Product[] = () => products;
 

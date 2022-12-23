@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { getFilters } from '../../lib/services/Products';
+  import { getFilters } from '../../lib/services/products';
   import Product from '../Product.svelte';
 
   const { manufacturers, categories, minPrice, maxPrice } = getFilters();

@@ -1,4 +1,4 @@
-import { getManufacturers } from '../../../lib/services/Products';
+import { getManufacturers } from '../../../lib/services/products';
 import type { PageLoadEvent } from './$types';
 
 export function load(event: PageLoadEvent) {

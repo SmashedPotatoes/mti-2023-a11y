@@ -1,6 +1,6 @@
 <script lang="ts">
   import AddToCartButton from './AddToCartButton.svelte';
-  import type { Product } from '../lib/types/Product';
+  import type { Product } from '../lib/types/product';
 
   export let index: number;
   export let product: Product;
