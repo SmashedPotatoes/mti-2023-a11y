@@ -3,25 +3,24 @@
   import { clearCart, getProductsInCart, removeFromCart } from '../lib/services/cart';
   import { onMount } from 'svelte';
   import CartProduct from './CartProduct.svelte';
+  import { cart } from '../lib/stores/cart';
   function onClearCart() {
     clearCart();
   }
-  let productsInCart = [];
   onMount(() => {
-    productsInCart = getProductsInCart();
+    getProductsInCart();
   });
   function onRemoveProductFromCart(itemName) {
-    productsInCart = productsInCart.filter((product) => product.name !== itemName);
     removeFromCart(itemName);
   }
 </script>
 
 <div class="popup-header">
-  <p class="popup-title">Your cart ({productsInCart.length} items)</p>
+  <p class="popup-title">Your cart ({$cart.length} item{$cart.length > 1 ? 's' : ''})</p>
   <button class="cart-clear" on:click={onClearCart}>Clear cart<img src={trashCan} alt="trashCan" /></button>
 </div>
 <ul class="popup-list">
-  {#each productsInCart as product, index (product.name + '-product-' + index)}
+  {#each $cart as product, index (product.name + '-product-' + index)}
     <CartProduct {product} onRemove={() => onRemoveProductFromCart(product.name)} />
   {/each}
 </ul>
