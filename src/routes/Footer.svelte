@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FooterCategory } from '../lib/types/Footer';
+  import type { FooterCategory } from '../lib/types/footer';
 
   const getToKnowUs: FooterCategory = {
     title: 'Get to Know Us',

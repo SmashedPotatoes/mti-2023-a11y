@@ -12,6 +12,12 @@
     { name: 'Categories', href: '/categories' },
     { name: 'Sell', href: '/sell' },
   ];
+
+  let profileMenuOpen = false;
+  function toggleProfileMenu() {
+    console.log('toggleProfileMenu');
+    profileMenuOpen = !profileMenuOpen;
+  }
 </script>
 
 <header>
@@ -33,8 +39,25 @@
       <p id="search-hint" class="sr-only">Enter the query to search for a product.</p>
       <button type="submit" aria-label="Search"><img src={search} alt="search button" /></button>
     </form>
-    <button><img src={profile} alt="" />Profile</button>
-    <button><img src={cart} alt="" />Cart</button>
+    <ul role="menu">
+      <li role="none">
+        <button
+          class="haspopup"
+          on:click={() => toggleProfileMenu()}
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded={profileMenuOpen}><img src={profile} alt="" />Profile</button
+        >
+        <ul role="menu" aria-label="Profile">
+          <li role="none"><a role="menuitem" href="/profile/">Profile</a></li>
+          <li role="none"><a role="menuitem" href="/profile/orders">My Orders</a></li>
+          <li role="none"><a role="menuitem" href="/profile/settings">Settings</a></li>
+        </ul>
+      </li>
+      <li role="none">
+        <button role="menuitem" aria-haspopup="true" aria-expanded="false"><img src={cart} alt="" />Cart</button>
+      </li>
+    </ul>
   </div>
   <nav>
     <ul class="container">
@@ -156,6 +179,54 @@
         color: var(--color-primary-text-hover);
         border-color: var(--color-primary-text-hover);
       }
+    }
+  }
+
+  ul {
+    margin-bottom: 0;
+    > li {
+      display: inline-block;
+      height: 100%;
+      button {
+        height: 100%;
+      }
+    }
+  }
+
+  .haspopup {
+    position: relative;
+    &[aria-expanded='true'] + ul {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      background: var(--color-accent);
+      z-index: 10;
+      padding: 0;
+      border-radius: 0 0 0.5rem 0.5rem;
+      border: var(--color-secondary) 4px solid;
+      border-top: none;
+      li {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        a {
+          width: 100%;
+          height: 100%;
+          padding: 1rem;
+          color: var(--color-primary-text);
+          text-decoration: none;
+          transition: color 150ms ease-out;
+          &:hover {
+            background: var(--color-secondary);
+          }
+        }
+      }
+      li:last-child a {
+        border-radius: 0 0 0.5rem 0.5rem;
+      }
+    }
+    &[aria-expanded='false'] + ul {
+      display: none;
     }
   }
 </style>
