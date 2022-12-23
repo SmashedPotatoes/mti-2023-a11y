@@ -5,6 +5,7 @@
   import logoFallback from '$lib/images/nile.svg';
   import profile from '$lib/images/profile.svg';
   import search from '$lib/images/search.svg';
+  import CartPopup from './CartPopup.svelte';
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Deals', href: '/deals' },
@@ -14,9 +15,15 @@
   ];
 
   let profileMenuOpen = false;
+  let cartMenuOpen = false;
   function toggleProfileMenu() {
-    console.log('toggleProfileMenu');
     profileMenuOpen = !profileMenuOpen;
+    cartMenuOpen = false;
+  }
+
+  function toggleCartMenu() {
+    cartMenuOpen = !cartMenuOpen;
+    profileMenuOpen = false;
   }
 </script>
 
@@ -48,14 +55,23 @@
           aria-haspopup="true"
           aria-expanded={profileMenuOpen}><img src={profile} alt="" />Profile</button
         >
-        <ul role="menu" aria-label="Profile">
+        <ul role="menu" aria-label="Profile" class="popup">
           <li role="none"><a role="menuitem" href="/profile/profile">Profile</a></li>
           <li role="none"><a role="menuitem" href="/profile/orders">My Orders</a></li>
           <li role="none"><a role="menuitem" href="/profile/settings">Settings</a></li>
         </ul>
       </li>
       <li role="none">
-        <button role="menuitem" aria-haspopup="true" aria-expanded="false"><img src={cart} alt="" />Cart</button>
+        <button
+          class="haspopup"
+          on:click={() => toggleCartMenu()}
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded={cartMenuOpen}><img src={cart} alt="" />Cart</button
+        >
+        <section aria-label="Cart" class="popup" id="cart-popup">
+          <CartPopup />
+        </section>
       </li>
     </ul>
   </div>
@@ -182,7 +198,8 @@
     }
   }
 
-  ul {
+  ul,
+  .popup {
     margin-bottom: 0;
     > li {
       display: inline-block;
@@ -195,7 +212,7 @@
 
   .haspopup {
     position: relative;
-    &[aria-expanded='true'] + ul {
+    &[aria-expanded='true'] + .popup {
       display: flex;
       flex-direction: column;
       position: absolute;
@@ -228,8 +245,14 @@
         border-radius: 0 0 0.5rem 0.5rem;
       }
     }
-    &[aria-expanded='false'] + ul {
+    &[aria-expanded='false'] + .popup {
       display: none;
     }
+  }
+
+  #cart-popup {
+    width: max-content;
+    min-width: 400px;
+    right: 1rem;
   }
 </style>
