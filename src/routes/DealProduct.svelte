@@ -25,7 +25,7 @@
     </div>
     <p class="deal-percentage">{product.deal}% off</p>
   </div>
-  <AddToCartButton onClick={product.onAddToCart} />
+  <AddToCartButton productName={product.name} />
 </li>
 
 <style>

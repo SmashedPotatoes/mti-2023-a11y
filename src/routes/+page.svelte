@@ -7,20 +7,16 @@
   import TopSellerProduct from './TopSellerProduct.svelte';
   import { addToCart } from '../lib/services/cart';
 
-  const dealProducts: DealProductProps[] = deals
-    .reduce((previous, deal) => {
-      const product = products.find((product) => product.name === deal.product);
-      if (product) previous.push({ ...product, ...deal });
-      return previous;
-    }, [] as DealProductProps[])
-    .map((dp) => ({ ...dp, onAddToCart: () => addToCart(dp.name) }));
+  const dealProducts: DealProductProps[] = deals.reduce((previous, deal) => {
+    const product = products.find((product) => product.name === deal.product);
+    if (product) previous.push({ ...product, ...deal });
+    return previous;
+  }, [] as DealProductProps[]);
 
-  const topSellers: TopSellerProductProps[] = products
-    .reduce((previous, product) => {
-      if (product.categories.includes('Books')) previous.push(product);
-      return previous;
-    }, [] as TopSellerProductProps[])
-    .map((tp) => ({ ...tp, onAddToCart: () => addToCart(tp.name) }));
+  const topSellers: TopSellerProductProps[] = products.reduce((previous, product) => {
+    if (product.categories.includes('Books')) previous.push(product);
+    return previous;
+  }, [] as TopSellerProductProps[]);
 </script>
 
 <svelte:head>
