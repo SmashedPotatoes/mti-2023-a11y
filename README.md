@@ -63,7 +63,7 @@ Vous trouverez dans ce dépôt plusieurs dossiers :
 │ └ *.png         # Les screenshots utilisées dans ce document
 │
 ├ src/
-│ ├ cart.js       # Export des fonctions utilisée pour gérer le panier (cf. [Gestion du panier](#gestion-du-panier))
+│ ├ cart.ts       # Export des fonctions utilisée pour gérer le panier (cf. [Gestion du panier](#gestion-du-panier))
 │ └ style.css     # Les couleurs et la police utilisés
 │
 └ README.md
@@ -74,7 +74,7 @@ Notez que les images des produits et des catégories se trouvent sous la forme d
 
 ### Gestion du panier
 
-Le fichier `./src/cart.js` exporte 4 fonctions :
+Le fichier `./src/cart.ts` exporte 4 fonctions :
 
 ```js
 // Récupérer le contenu du panier au format `["Laptop", "Tablet", ...]`
