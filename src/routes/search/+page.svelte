@@ -3,7 +3,8 @@
   import { getFilters } from '../../lib/services/Products';
   import Product from '../Product.svelte';
 
-  const { manufacturers, categories } = getFilters();
+  const { manufacturers, categories, minPrice, maxPrice } = getFilters();
+  let currMaxPrice = maxPrice;
 </script>
 
 <div class="row">
@@ -22,7 +23,15 @@
       </fieldset>
       <label>
         Max price
-        <input type="range" class="form-control-range" />
+        <input
+          name="maxPrice"
+          type="range"
+          bind:value={currMaxPrice}
+          class="form-control-range"
+          min={minPrice}
+          max={maxPrice}
+        />
+        {currMaxPrice}&euro;
       </label>
       <fieldset class="form-group">
         <legend>Category</legend>

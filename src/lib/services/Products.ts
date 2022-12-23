@@ -11,6 +11,19 @@ export const getManufacturers = () => {
   return [...new Set(products.map((product) => product.manufacturer))];
 };
 
+export const getMaxPrice = () => {
+  return Math.max(...products.map((product) => product.price));
+};
+
+export const getMinPrice = () => {
+  return Math.min(...products.map((product) => product.price));
+};
+
 export const getFilters: () => Filters = () => {
-  return { manufacturers: getManufacturers(), categories: getCategories() };
+  return {
+    manufacturers: getManufacturers(),
+    categories: getCategories(),
+    minPrice: getMinPrice(),
+    maxPrice: getMaxPrice(),
+  };
 };
