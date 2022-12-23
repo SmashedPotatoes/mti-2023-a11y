@@ -16,6 +16,7 @@
   --color-deal-complementary: white;
 
   --color-call-to-action: #ffd713;
+  --color-call-to-action-hover: #ffea82;
   --color-call-to-action-complementary: black;
 
   --card-border: 1px solid #ddd;
@@ -31,10 +32,17 @@
 
 .grid {
   display: grid;
-  gap: 1ch;
+  gap: 2ch;
+}
 
-  /* 4 equal columns */
-  grid-template-columns: repeat(4, 1fr);
+.grid.product-grid {
+  /* 5 equal columns */
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid.category-grid {
+  /* 3 equal columns */
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .align-items {
@@ -55,9 +63,10 @@
 }
 
 .card {
-  border: var(--card-border);
-  border-radius: 5px;
+  border: none;
+  border-radius: 10px;
   transition: scale 100ms ease-in-out;
+  filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.2));
 }
 
 .card:hover,

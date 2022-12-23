@@ -26,7 +26,7 @@
 <h1 class="sr-only">Home</h1>
 <section>
   <h2 class="sr-only">Deals</h2>
-  <ul class="grid">
+  <ul class="grid product-grid">
     {#each dealProducts as dealProduct, index}
       <DealProduct {index} product={dealProduct} />
     {/each}
@@ -35,7 +35,7 @@
 <hr />
 <section>
   <h2 class="sr-only">Categories</h2>
-  <ul class="grid">
+  <ul class="grid category-grid">
     {#each categories as category, index}
       <Category {index} {category} />
     {/each}
@@ -44,7 +44,7 @@
 <hr />
 <section>
   <h2>Top Sellers</h2>
-  <ul class="grid">
+  <ul class="grid product-grid">
     {#each topSellers as topSeller, index}
       <TopSellerProduct {index} product={topSeller} />
     {/each}
@@ -60,5 +60,10 @@
   ul {
     margin: 0;
     padding: 0;
+  }
+
+  h2:not(.sr-only) {
+    padding: 1rem;
+    font-weight: bold;
   }
 </style>
