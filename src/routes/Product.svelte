@@ -18,7 +18,7 @@
       <strong id={key}>{product.name}</strong>
       <p>Rating: {product.rating}</p>
       <p class="price">&euro;{product.price}</p>
-      <p>Sold by <a href="/manufacturer/{product.manufacturer}">{product.manufacturer}</a></p>
+      <p>Sold by <a href="/manufacturer/{product.manufacturer}" class="manufacturer">{product.manufacturer}</a></p>
       <p>Estimated delivery: {product['estimated-delivery']}</p>
     </div>
     <AddToCartButton onClick={onAddToCart} />
@@ -30,5 +30,9 @@
     margin: 0;
     font-size: x-large;
     font-weight: bold;
+  }
+  .manufacturer {
+    position: relative;
+    z-index: 2;
   }
 </style>
