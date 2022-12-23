@@ -22,9 +22,16 @@
         <img src={logoFallback} alt="Nile logo" />
       </picture>
     </a>
-    <form action="#">
-      <input type="search" placeholder="Navigate the nile..." aria-placeholder="Navigate the nile..." />
-      <button type="submit"><img src={search} alt="search button" /></button>
+    <form action="/search">
+      <input
+        name="q"
+        type="search"
+        placeholder="Navigate the nile..."
+        aria-placeholder="Navigate the nile..."
+        aria-describedby="search-hint"
+      />
+      <p id="search-hint" class="sr-only">Enter the query to search for a product.</p>
+      <button type="submit" aria-label="Search"><img src={search} alt="search button" /></button>
     </form>
     <button><img src={profile} alt="" />Profile</button>
     <button><img src={cart} alt="" />Cart</button>
@@ -80,9 +87,6 @@
   }
 
   button {
-    background: none;
-    border: none;
-    color: var(--color-primary-text);
     img {
       width: 1.5rem;
       height: 1.5rem;

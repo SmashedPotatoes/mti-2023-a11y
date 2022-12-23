@@ -40,6 +40,11 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
+.grid.search-grid {
+  /* 4 equal columns */
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .grid.category-grid {
   /* 3 equal columns */
   grid-template-columns: repeat(3, 1fr);
@@ -66,7 +71,7 @@
   border: none;
   border-radius: 10px;
   transition: scale 100ms ease-in-out;
-  filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.2));
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .card:hover,
@@ -90,4 +95,10 @@
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--color-primary-text);
 }
