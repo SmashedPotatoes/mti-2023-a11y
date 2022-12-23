@@ -5,10 +5,12 @@
   export let href: string = '/';
 </script>
 
-<a class="card" {href}>
+<li class="card position-relative">
+  <!-- svelte-ignore a11y-missing-content -->
+  <a class="overlap" {href} aria-labelledby="category-name" />
   <img class="picture" src={category.picture} alt="" />
-  <strong class="category-name">{category.name}</strong>
-</a>
+  <strong id="category-name" class="category-name">{category.name}</strong>
+</li>
 
 <style>
   .category-name {

@@ -19,20 +19,20 @@
 <h1 class="sr-only">Home</h1>
 <section>
   <h2 class="sr-only">Deals</h2>
-  <div class="grid">
+  <ul class="grid">
     {#each dealProducts as dealProduct}
       <DealProduct product={dealProduct} />
     {/each}
-  </div>
+  </ul>
 </section>
 <hr />
 <section>
   <h2 class="sr-only">Categories</h2>
-  <div class="grid">
+  <ul class="grid">
     {#each categories as category}
       <Category {category} />
     {/each}
-  </div>
+  </ul>
 </section>
 <hr />
 <section>
@@ -46,5 +46,10 @@
   section {
     display: flex;
     flex-direction: column;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
   }
 </style>

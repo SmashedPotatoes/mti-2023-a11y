@@ -8,7 +8,7 @@
   const newPrice = product.price - (product.price * product.deal) / 100;
 </script>
 
-<div class="card position-relative">
+<li class="card position-relative">
   <!-- svelte-ignore a11y-missing-content -->
   <a class="overlap" {href} aria-labelledby="product-name" />
   <img class="picture" src={product.picture} alt="" />
@@ -25,7 +25,7 @@
   <button class="overlap add-to-cart-btn" on:click={product.onAddToCart}>
     <img src={addToCartIcon} alt="add to cart" />
   </button>
-</div>
+</li>
 
 <style>
   .product-info {
