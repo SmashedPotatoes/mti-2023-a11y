@@ -21,7 +21,7 @@
       <p>Sold by <a href="/manufacturer/{product.manufacturer}" class="manufacturer">{product.manufacturer}</a></p>
       <p>Estimated delivery: {product['estimated-delivery']}</p>
     </div>
-    <AddToCartButton onClick={onAddToCart} />
+    <AddToCartButton onClick={() => onAddToCart()} />
   </li>
 {/if}
 
