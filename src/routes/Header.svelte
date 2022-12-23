@@ -13,10 +13,6 @@
     { name: 'Categories', href: '/categories' },
     { name: 'Sell', href: '/sell' },
   ];
-  let searchQuery = '';
-  function handleSubmit() {
-    goto('/search?q=' + searchQuery ?? '');
-  }
 </script>
 
 <header>
@@ -27,13 +23,8 @@
         <img src={logoFallback} alt="Nile logo" />
       </picture>
     </a>
-    <form method="POST" on:submit|preventDefault={handleSubmit}>
-      <input
-        bind:value={searchQuery}
-        type="search"
-        placeholder="Navigate the nile..."
-        aria-placeholder="Navigate the nile..."
-      />
+    <form action="/search">
+      <input name="q" type="search" placeholder="Navigate the nile..." aria-placeholder="Navigate the nile..." />
       <button type="submit" aria-label="Search"><img src={search} alt="search button" /></button>
     </form>
     <button><img src={profile} alt="" />Profile</button>
