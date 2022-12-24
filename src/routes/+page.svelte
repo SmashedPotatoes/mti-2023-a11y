@@ -1,19 +1,24 @@
 <script lang="ts">
-  import { categories, deals, products } from '$lib/images/data.json';
   import type { DealProductProps } from '$lib/interfaces/products/deal-product-props';
   import type { TopSellerProductProps } from '$lib/interfaces/products/top-seller-product-props';
   import Category from './Category.svelte';
   import DealProduct from './DealProduct.svelte';
   import TopSellerProduct from './TopSellerProduct.svelte';
+  import { getCategories, getDeals, getProducts } from '../lib/services/products';
+
+  const deals = getDeals();
+  const products = getProducts();
+  const categories = getCategories();
 
   const dealProducts: DealProductProps[] = deals.reduce((previous, deal) => {
     const product = products.find((product) => product.name === deal.product);
-    if (product) previous.push({ ...product, ...deal });
+    if (product) previous.push({ ...product, ...deal } as DealProductProps);
     return previous;
   }, [] as DealProductProps[]);
 
+  console.log(products);
   const topSellers: TopSellerProductProps[] = products.reduce((previous, product) => {
-    if (product.categories.includes('Books')) previous.push(product);
+    if (product.categories.some((c) => c === 'Books')) previous.push(product);
     return previous;
   }, [] as TopSellerProductProps[]);
 </script>
