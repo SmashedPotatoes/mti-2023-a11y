@@ -19,7 +19,7 @@
     <p class="sr-only">{priceToText(product.price)}</p>
     <p class="price" aria-hidden={true}>{product.price}&euro;</p>
   </div>
-  <AddToCartButton onClick={product.onAddToCart} />
+  <AddToCartButton productName={product.name} />
 </li>
 
 <style>

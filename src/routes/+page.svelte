@@ -5,6 +5,7 @@
   import Category from './Category.svelte';
   import DealProduct from './DealProduct.svelte';
   import TopSellerProduct from './TopSellerProduct.svelte';
+  import { addToCart } from '../lib/services/cart';
 
   const dealProducts: DealProductProps[] = deals.reduce((previous, deal) => {
     const product = products.find((product) => product.name === deal.product);
