@@ -5,7 +5,7 @@
 
   export let index: number;
   export let product: DealProductProps;
-  export let href: string = '/';
+  export let href: string = '/product/' + product.name;
 
   const key = `deal-product-${index}`;
   const newPrice = product.price - (product.price * product.deal) / 100;

@@ -5,7 +5,7 @@
 
   export let index: number;
   export let product: TopSellerProductProps;
-  export let href: string = '/';
+  export let href: string = '/product/' + product.name;
 
   const key = `top-seller-product-${index}`;
 </script>
