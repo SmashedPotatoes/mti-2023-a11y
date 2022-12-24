@@ -31,6 +31,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+    width: 100%;
   }
 
   .popup-title {

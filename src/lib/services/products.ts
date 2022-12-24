@@ -1,11 +1,16 @@
-import { products, deals, categories } from '$lib/images/data.json';
-import type { Category, Deal, Filters, Product } from '../types/product';
+import data, { products, deals, categories } from '$lib/images/data.json';
+import type { Product } from '../types/product';
+import type { Deal } from '../types/deal';
+import type { Category } from '../types/category';
+import type { Filters } from '../types/filters';
 
 export const getProducts: () => Product[] = () => products;
 
 export const getDeals: () => Deal[] = () => deals;
 
 export const getCategories: () => Category[] = () => categories;
+
+export const getTopSellers: () => string[] = () => data['top-sellers'];
 
 export const getManufacturers = () => {
   return [...new Set(products.map((product) => product.manufacturer))];
