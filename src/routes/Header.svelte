@@ -231,7 +231,7 @@
         a {
           width: 100%;
           height: 100%;
-          padding: 1rem;
+          padding: 1rem 0.7rem;
           color: var(--color-primary-text);
           text-decoration: none;
           transition: color 150ms ease-out;
