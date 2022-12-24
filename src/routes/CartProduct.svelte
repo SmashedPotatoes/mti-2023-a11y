@@ -10,7 +10,7 @@
   <!-- svelte-ignore a11y-missing-content -->
   <a class="overlap" href="/product/{product.name}" />
   <img class="cart-product-picture" src={product.picture} alt={product.name} />
-  <h3 class="cart-product-title"><strong>{product.name}</strong></h3>
+  <p class="cart-product-title"><strong>{product.name}</strong></p>
   <button class="cart-product-action" on:click={onRemove} aria-labelledby="remove-{product.name}-from-cart">
     <img src={trashCan} alt="remove {product.name} from cart" />
   </button>
