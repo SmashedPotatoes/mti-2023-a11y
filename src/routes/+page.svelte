@@ -4,11 +4,12 @@
   import Category from './Category.svelte';
   import DealProduct from './DealProduct.svelte';
   import TopSellerProduct from './TopSellerProduct.svelte';
-  import { getCategories, getDeals, getProducts } from '../lib/services/products';
+  import { getCategories, getDeals, getProducts, getTopSellers } from '../lib/services/products';
 
   const deals = getDeals();
   const products = getProducts();
   const categories = getCategories();
+  const topSellerNames = getTopSellers();
 
   const dealProducts: DealProductProps[] = deals.reduce((previous, deal) => {
     const product = products.find((product) => product.name === deal.product);
@@ -16,8 +17,9 @@
     return previous;
   }, [] as DealProductProps[]);
 
-  const topSellers: TopSellerProductProps[] = products.reduce((previous, product) => {
-    if (product.categories.some((c) => c === 'Books')) previous.push(product);
+  const topSellers: TopSellerProductProps[] = topSellerNames.reduce((previous, name) => {
+    const product = products.find((product) => product.name === name);
+    if (product) previous.push({ ...product } as TopSellerProductProps);
     return previous;
   }, [] as TopSellerProductProps[]);
 </script>
