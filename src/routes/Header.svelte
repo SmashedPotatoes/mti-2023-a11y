@@ -50,7 +50,7 @@
       <li role="none">
         <button
           class="haspopup"
-          on:click={() => toggleProfileMenu()}
+          on:click={toggleProfileMenu}
           role="menuitem"
           aria-haspopup="true"
           aria-expanded={profileMenuOpen}><img src={profile} alt="" />Profile</button
@@ -64,7 +64,7 @@
       <li role="none">
         <button
           class="haspopup"
-          on:click={() => toggleCartMenu()}
+          on:click={toggleCartMenu}
           role="menuitem"
           aria-haspopup="true"
           aria-expanded={cartMenuOpen}><img src={cart} alt="" />Cart</button
@@ -76,7 +76,7 @@
     </ul>
   </div>
   <nav>
-    <ul class="container">
+    <ul>
       {#each navLinks as link, index (`${link.name}-${index}}`)}
         <li aria-current={$page.url.pathname === link.href}>
           <a href={link.href}>
@@ -108,7 +108,8 @@
     border: none;
     color: var(--color-primary-text);
     margin: 0;
-    padding: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
     img {
       width: 1.5rem;
       height: 1.5rem;
@@ -116,7 +117,8 @@
     }
   }
 
-  button:hover {
+  button:hover,
+  button[aria-expanded='true'] {
     background-color: var(--color-accent);
   }
 
@@ -170,7 +172,7 @@
   nav {
     background: var(--color-accent);
     ul {
-      margin: 0 0 0 2rem;
+      margin: 0 0 0 7rem;
       > li {
         display: inline-block;
         margin: 0 0.5em;
@@ -201,12 +203,12 @@
   ul,
   .popup {
     margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 0;
     > li {
-      display: inline-block;
-      height: 100%;
-      button {
-        height: 100%;
-      }
+      padding: 0.4rem;
     }
   }
 
@@ -220,7 +222,7 @@
       z-index: 10;
       padding: 0;
       border-radius: 0.5rem 0.5rem;
-      margin-top: 0.3rem;
+      margin-top: 1.2rem;
 
       li {
         display: flex;
