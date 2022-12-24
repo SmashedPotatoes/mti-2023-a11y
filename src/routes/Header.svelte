@@ -25,6 +25,12 @@
     cartMenuOpen = !cartMenuOpen;
     profileMenuOpen = false;
   }
+
+  function onProfileMenuBlur() {
+    setTimeout(() => {
+      profileMenuOpen = false;
+    }, 200);
+  }
 </script>
 
 <header>
@@ -51,6 +57,7 @@
         <button
           class="haspopup"
           on:click={toggleProfileMenu}
+          on:blur={onProfileMenuBlur}
           role="menuitem"
           aria-haspopup="true"
           aria-expanded={profileMenuOpen}><img src={profile} alt="" />Profile</button
