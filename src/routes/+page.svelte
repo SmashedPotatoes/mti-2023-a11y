@@ -16,7 +16,6 @@
     return previous;
   }, [] as DealProductProps[]);
 
-  console.log(products);
   const topSellers: TopSellerProductProps[] = products.reduce((previous, product) => {
     if (product.categories.some((c) => c === 'Books')) previous.push(product);
     return previous;
