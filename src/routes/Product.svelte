@@ -4,7 +4,6 @@
 
   export let index: number;
   export let product: Product;
-  export let onAddToCart: (product: Product) => void = (_: Product) => {};
 
   const key = `product-${index}`;
 </script>
@@ -21,7 +20,7 @@
       <p>Sold by <a href="/manufacturer/{product.manufacturer}" class="manufacturer">{product.manufacturer}</a></p>
       <p>Estimated delivery: {product['estimated-delivery']}</p>
     </div>
-    <AddToCartButton onClick={() => onAddToCart()} />
+    <AddToCartButton productName={product.name} />
   </li>
 {/if}
 

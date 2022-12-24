@@ -1,10 +1,11 @@
 <script lang="ts">
   import addToCartIcon from '$lib/images/add-to-cart.svg';
+  import { addToCart } from '$lib/services/cart';
 
-  export let onClick: () => void = () => {};
+  export let productName: string;
 </script>
 
-<button class="overlap add-to-cart-btn" on:click={onClick}>
+<button class="overlap add-to-cart-btn" on:click={() => addToCart(productName)}>
   <img src={addToCartIcon} alt="add to cart" />
 </button>
 

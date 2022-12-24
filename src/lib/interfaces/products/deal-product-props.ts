@@ -3,5 +3,4 @@ export interface DealProductProps {
   picture: string;
   price: number;
   deal: number;
-  onAddToCart?: () => void;
 }

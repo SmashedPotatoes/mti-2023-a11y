@@ -5,6 +5,7 @@
   import logoFallback from '$lib/images/nile.svg';
   import profile from '$lib/images/profile.svg';
   import search from '$lib/images/search.svg';
+  import CartPopup from './CartPopup.svelte';
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Deals', href: '/deals' },
@@ -12,6 +13,24 @@
     { name: 'Categories', href: '/categories' },
     { name: 'Sell', href: '/sell' },
   ];
+
+  let profileMenuOpen = false;
+  let cartMenuOpen = false;
+  function toggleProfileMenu() {
+    profileMenuOpen = !profileMenuOpen;
+    cartMenuOpen = false;
+  }
+
+  function toggleCartMenu() {
+    cartMenuOpen = !cartMenuOpen;
+    profileMenuOpen = false;
+  }
+
+  function onProfileMenuBlur() {
+    setTimeout(() => {
+      profileMenuOpen = false;
+    }, 200);
+  }
 </script>
 
 <header>
@@ -33,11 +52,38 @@
       <p id="search-hint" class="sr-only">Enter the query to search for a product.</p>
       <button type="submit" aria-label="Search"><img src={search} alt="search button" /></button>
     </form>
-    <button><img src={profile} alt="" />Profile</button>
-    <button><img src={cart} alt="" />Cart</button>
+    <ul role="menu">
+      <li role="none">
+        <button
+          class="haspopup"
+          on:click={toggleProfileMenu}
+          on:blur={onProfileMenuBlur}
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded={profileMenuOpen}><img src={profile} alt="" />Profile</button
+        >
+        <ul role="menu" aria-label="Profile" class="popup">
+          <li role="none"><a role="menuitem" href="/profile/profile">Profile</a></li>
+          <li role="none"><a role="menuitem" href="/profile/orders">My Orders</a></li>
+          <li role="none"><a role="menuitem" href="/profile/settings">Settings</a></li>
+        </ul>
+      </li>
+      <li role="none">
+        <button
+          class="haspopup"
+          on:click={toggleCartMenu}
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded={cartMenuOpen}><img src={cart} alt="" />Cart</button
+        >
+        <section aria-label="Cart" class="popup" id="cart-popup">
+          <CartPopup />
+        </section>
+      </li>
+    </ul>
   </div>
   <nav>
-    <ul class="container">
+    <ul>
       {#each navLinks as link, index (`${link.name}-${index}}`)}
         <li aria-current={$page.url.pathname === link.href}>
           <a href={link.href}>
@@ -69,7 +115,8 @@
     border: none;
     color: var(--color-primary-text);
     margin: 0;
-    padding: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
     img {
       width: 1.5rem;
       height: 1.5rem;
@@ -77,7 +124,8 @@
     }
   }
 
-  button:hover {
+  button:hover,
+  button[aria-expanded='true'] {
     background-color: var(--color-accent);
   }
 
@@ -131,7 +179,7 @@
   nav {
     background: var(--color-accent);
     ul {
-      margin: 0 0 0 2rem;
+      margin: 0 0 0 7rem;
       > li {
         display: inline-block;
         margin: 0 0.5em;
@@ -157,5 +205,63 @@
         border-color: var(--color-primary-text-hover);
       }
     }
+  }
+
+  ul,
+  .popup {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 0;
+    > li {
+      padding: 0.4rem;
+    }
+  }
+
+  .haspopup {
+    position: relative;
+    &[aria-expanded='true'] + .popup {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      background: var(--color-primary);
+      z-index: 10;
+      padding: 0;
+      border-radius: 0.5rem 0.5rem;
+      margin-top: 1.2rem;
+
+      li {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        a {
+          width: 100%;
+          height: 100%;
+          padding: 1rem 0.7rem;
+          color: var(--color-primary-text);
+          text-decoration: none;
+          transition: color 150ms ease-out;
+          &:hover {
+            background: var(--color-secondary);
+          }
+        }
+      }
+      li:first-child a {
+        border-radius: 0.5rem 0.5rem 0 0;
+      }
+      li:last-child a {
+        border-radius: 0 0 0.5rem 0.5rem;
+      }
+    }
+    &[aria-expanded='false'] + .popup {
+      display: none;
+    }
+  }
+
+  #cart-popup {
+    width: max-content;
+    min-width: 400px;
+    right: 1rem;
   }
 </style>
