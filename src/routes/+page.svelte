@@ -29,7 +29,7 @@
   <meta name="description" content="Nile home page" />
 </svelte:head>
 
-<h1 class="sr-only">Home</h1>
+<h1 class="sr-only">Nile Home Page</h1>
 <section>
   <h2 class="sr-only">Deals</h2>
   <ul class="grid product-grid">

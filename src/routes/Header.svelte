@@ -43,14 +43,14 @@
     </a>
     <form action="/search">
       <input
+        id="search-bar"
         name="q"
         type="search"
         placeholder="Navigate the nile..."
         aria-placeholder="Navigate the nile..."
-        aria-describedby="search-hint"
       />
-      <p id="search-hint" class="sr-only">Enter the query to search for a product.</p>
-      <button type="submit" aria-label="Search"><img src={search} alt="search button" /></button>
+      <label for="search-bar" class="sr-only">Enter the query to search for a product.</label>
+      <button type="submit" aria-label="Search"><img src={search} alt="" /></button>
     </form>
     <ul role="menu">
       <li role="none">

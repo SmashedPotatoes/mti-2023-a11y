@@ -5,8 +5,8 @@
   export let productName: string;
 </script>
 
-<button class="overlap add-to-cart-btn" on:click={() => addToCart(productName)}>
-  <img src={addToCartIcon} alt="add to cart" />
+<button class="overlap add-to-cart-btn" on:click={() => addToCart(productName)} aria-label="Add {productName} to cart">
+  <img src={addToCartIcon} alt="" />
 </button>
 
 <style>

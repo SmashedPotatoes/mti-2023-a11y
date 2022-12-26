@@ -14,7 +14,7 @@
 
 <div class="row">
   <h1 class="sr-only">Search product page</h1>
-  <div class="col-3">
+  <section class="col-3">
     <form>
       <h2 class="sr-only">Filters</h2>
       <fieldset class="form-group">
@@ -55,7 +55,7 @@
         <button type="submit">Filter</button>
       </div>
     </form>
-  </div>
+  </section>
   <div class="col-9">
     <ul class="grid search-grid">
       {#each $page.data.products as product, index (index)}

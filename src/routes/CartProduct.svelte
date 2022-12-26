@@ -11,10 +11,9 @@
   <a class="overlap" href="/product/{product.name}" />
   <img class="cart-product-picture" src={product.picture} alt={product.name} />
   <p class="cart-product-title"><strong>{product.name}</strong></p>
-  <button class="cart-product-action" on:click={onRemove} aria-labelledby="remove-{product.name}-from-cart">
-    <img src={trashCan} alt="remove {product.name} from cart" />
+  <button class="cart-product-action" on:click={onRemove} aria-label="Remove {product.name} from cart">
+    <img src={trashCan} alt="" />
   </button>
-  <p id="remove-{product.name}-from-cart" class="sr-only">remove {product.name} from cart</p>
 </li>
 
 <style lang="scss">
