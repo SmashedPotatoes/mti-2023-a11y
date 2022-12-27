@@ -80,11 +80,11 @@
 
 <footer>
   <div class="categories container">
-    {#each footerCategories as category}
+    {#each footerCategories as category, index (`footer-category-${index}`)}
       <section>
         <h2>{category.title}</h2>
         <ul>
-          {#each category.links as link}
+          {#each category.links as link, linkIndex (`footer-category-link-${index}.${linkIndex}`)}
             <li><a href={link.url}>{link.title}</a></li>
           {/each}
         </ul>
@@ -102,6 +102,7 @@
     background-color: var(--color-primary);
     color: var(--color-primary-text);
     padding: 1rem;
+    gap: 2rem;
 
     .categories {
       display: flex;
@@ -131,6 +132,10 @@
           }
         }
       }
+    }
+
+    p {
+      font-size: 0.9rem;
     }
   }
 </style>
