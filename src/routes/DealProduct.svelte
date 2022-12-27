@@ -19,7 +19,7 @@
       <p class="sr-only">Before: {priceToText(product.price)}</p>
       <p class="old-price" aria-hidden={true}>{product.price}</p>
       <p class="sr-only">After: {priceToText(product.price)}</p>
-      <p class="new-price" aria-hidden={true}>{newPrice % 1 ? newPrice.toFixed(2) : newPrice}&euro;</p>
+      <p class="new-price" aria-hidden={true}>{newPrice % 1 ? newPrice.toFixed(2) : newPrice}<sup>&euro;</sup></p>
     </div>
     <p class="deal-percentage">{product.deal}% off</p>
   </div>

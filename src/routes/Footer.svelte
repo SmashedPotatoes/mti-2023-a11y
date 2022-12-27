@@ -91,7 +91,7 @@
       </section>
     {/each}
   </div>
-  <p>©2022-2023, Nile, Incorporated</p>
+  <small>©2022-2023, Nile, Incorporated</small>
 </footer>
 
 <style lang="scss">
@@ -132,10 +132,6 @@
           }
         }
       }
-    }
-
-    p {
-      font-size: 0.9rem;
     }
   }
 </style>

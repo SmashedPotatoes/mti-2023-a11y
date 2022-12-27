@@ -13,8 +13,11 @@
     <div class="card-info">
       <strong>{product.name}</strong>
       <p>Rating: {product.rating}</p>
-      <p class="price">&euro;{product.price}</p>
-      <p>Sold by <a href="/manufacturer/{product.manufacturer}" class="manufacturer">{product.manufacturer}</a></p>
+      <p class="price">{product.price}<sup>&euro;</sup></p>
+      <small>
+        Sold by
+        <a href="/manufacturer/{product.manufacturer}" class="manufacturer">{product.manufacturer}</a>
+      </small>
       <p>Estimated delivery: {product['estimated-delivery']}</p>
     </div>
     <AddToCartButton productName={product.name} />
@@ -26,6 +29,9 @@
     margin: 0;
     font-size: x-large;
     font-weight: bold;
+  }
+  small {
+    padding-bottom: 1rem;
   }
   .manufacturer {
     position: relative;
