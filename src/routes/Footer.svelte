@@ -129,6 +129,10 @@
           a {
             color: var(--color-primary-text);
             text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }
