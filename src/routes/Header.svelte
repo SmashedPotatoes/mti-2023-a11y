@@ -203,7 +203,7 @@
       }
 
       > li[aria-current='true'] a {
-        border-color: var(--color-primary-text);
+        border-color: rgb(255, 153, 0);
       }
 
       > li:hover a {

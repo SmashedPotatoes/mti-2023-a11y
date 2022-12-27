@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: aliceblue;
+    background-color: var(--color-primary-text-hover);
   }
 
   main {
@@ -29,7 +29,7 @@
     max-width: 90rem;
     padding: 1rem;
     width: 100%;
-    margin: 0 auto;
+    margin: 1rem auto;
     box-sizing: border-box;
   }
 </style>
