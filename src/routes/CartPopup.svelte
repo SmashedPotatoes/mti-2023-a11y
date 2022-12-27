@@ -17,7 +17,7 @@
 
 <div class="popup-header">
   <p class="popup-title">Your cart ({$cart.length} item{$cart.length > 1 ? 's' : ''})</p>
-  <button class="cart-clear" on:click={onClearCart}>Clear cart<img src={trashCan} alt="trashCan" /></button>
+  <button class="cart-clear" on:click={onClearCart}>Clear cart<img src={trashCan} alt="" /></button>
 </div>
 <ul class="popup-list">
   {#each $cart as product, index (product.name + '-product-' + index)}
