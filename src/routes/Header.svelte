@@ -35,7 +35,7 @@
 
 <header>
   <div>
-    <a href="/" class="logo">
+    <a href="/" class="logo" aria-label="Go to Nile home page">
       <picture>
         <source srcset={logo} type="image/svg+xml" />
         <img src={logoFallback} alt="Nile logo" />
@@ -57,11 +57,13 @@
         <button
           class="haspopup"
           on:click={toggleProfileMenu}
-          on:blur={onProfileMenuBlur}
           role="menuitem"
           aria-haspopup="true"
-          aria-expanded={profileMenuOpen}><img src={profile} alt="" />Profile</button
+          aria-expanded={profileMenuOpen}
         >
+          <img src={profile} alt="" />
+          Profile
+        </button>
         <ul role="menu" aria-label="Profile" class="popup">
           <li role="none"><a role="menuitem" href="/profile/profile">Profile</a></li>
           <li role="none"><a role="menuitem" href="/profile/orders">My Orders</a></li>
@@ -74,9 +76,12 @@
           on:click={toggleCartMenu}
           role="menuitem"
           aria-haspopup="true"
-          aria-expanded={cartMenuOpen}><img src={cart} alt="" />Cart</button
+          aria-expanded={cartMenuOpen}
         >
-        <section aria-label="Cart" class="popup" id="cart-popup">
+          <img src={cart} alt="" />
+          Cart
+        </button>
+        <section aria-label="Your cart" class="popup" id="cart-popup">
           <CartPopup />
         </section>
       </li>
