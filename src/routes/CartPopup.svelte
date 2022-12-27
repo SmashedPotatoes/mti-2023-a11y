@@ -43,6 +43,7 @@
 
   .popup-list {
     list-style: none;
+    width: 100%;
     padding: 0 1rem;
     margin: 0;
     max-height: calc(100vh - 200px);

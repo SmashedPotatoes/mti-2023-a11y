@@ -9,8 +9,13 @@
 <li>
   <!-- svelte-ignore a11y-missing-content -->
   <a class="overlap" href="/product/{product.name}" aria-label="Go to {product.name} page" />
-  <img class="cart-product-picture" src={product.picture} alt="" />
-  <strong class="cart-product-title">{product.name}</strong>
+  <div>
+    <img class="cart-product-picture" src={product.picture} alt="" />
+    <div class="product-info">
+      <strong class="cart-product-title">{product.name}</strong>
+      <p>{product.price}<sup>&euro;</sup></p>
+    </div>
+  </div>
   <button class="cart-product-action" on:click={onRemove} aria-label="Remove {product.name} from cart">
     <img src={trashCan} alt="" />
   </button>
@@ -23,8 +28,7 @@
     align-items: center;
     margin-bottom: 1rem;
     position: relative;
-    gap: 1rem;
-    padding: 0.7rem 1.4rem;
+    padding: 0.5rem 0;
     color: var(--color-primary-text);
     background: var(--color-secondary);
     border-radius: 0.5rem;
@@ -40,16 +44,32 @@
       border-radius: 0.5rem;
     }
 
-    .cart-product-title {
-      font-size: 1.2rem;
+    > div {
+      display: flex;
+
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.5rem;
+        .cart-product-title {
+          font-size: 1.2rem;
+        }
+      }
     }
 
     .cart-product-action {
-      width: 1.5rem;
-      height: 1.5rem;
+      align-self: stretch;
+      padding: 1rem;
+      padding-left: 2rem;
       z-index: 2;
       position: relative;
       transition: scale 100ms ease-in-out;
+
+      img {
+        width: 1rem;
+        height: 1rem;
+      }
+
       &:hover {
         scale: 1.25;
       }
