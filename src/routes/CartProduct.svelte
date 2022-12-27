@@ -8,7 +8,7 @@
 
 <li>
   <!-- svelte-ignore a11y-missing-content -->
-  <a class="overlap" href="/product/{product.name}" aria-label="Go to {product.name} page" />s
+  <a class="overlap" href="/product/{product.name}" aria-label="Go to {product.name} page" />
   <img class="cart-product-picture" src={product.picture} alt="" />
   <strong class="cart-product-title">{product.name}</strong>
   <button class="cart-product-action" on:click={onRemove} aria-label="Remove {product.name} from cart">
