@@ -54,10 +54,12 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    border-radius: 0.5rem;
     color: var(--color-primary-text);
-    padding: 1rem;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
     &:hover {
-      color: var(--color-error);
+      background-color: var(--color-error);
     }
     img {
       width: 1rem;
