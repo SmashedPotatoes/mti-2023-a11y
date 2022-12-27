@@ -10,7 +10,7 @@
   onMount(() => {
     getProductsInCart();
   });
-  function onRemoveProductFromCart(itemName) {
+  function onRemoveProductFromCart(itemName: string) {
     removeFromCart(itemName);
   }
 </script>
