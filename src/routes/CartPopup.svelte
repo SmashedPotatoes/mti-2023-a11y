@@ -55,6 +55,7 @@
     align-items: center;
     gap: 0.5rem;
     color: var(--color-primary-text);
+    padding: 1rem;
     &:hover {
       color: var(--color-error);
     }
