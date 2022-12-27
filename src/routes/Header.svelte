@@ -187,6 +187,7 @@
       margin: 0 0 0 7rem;
       > li {
         display: inline-block;
+        padding: 0;
         margin: 0 0.5em;
         a {
           display: flex;
