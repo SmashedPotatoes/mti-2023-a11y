@@ -56,13 +56,14 @@
       </div>
     </form>
   </section>
-  <div class="col-9">
+  <section class="col-9 results">
+    <h2 class="sr-only">Results</h2>
     <ul class="grid search-grid">
       {#each $page.data.products as product, index (index)}
         <Product {product} />
       {/each}
     </ul>
-  </div>
+  </section>
 </div>
 
 <style lang="scss">
@@ -70,7 +71,7 @@
     fieldset {
       margin-bottom: 1em !important;
       border: 1px solid #666 !important;
-      border-radius: 0.2rem;
+      border-radius: 0.5rem;
       padding: 0 1rem 1rem 1rem !important;
     }
 
@@ -92,5 +93,9 @@
       border-radius: 2rem;
       padding: 0.5rem 3rem;
     }
+  }
+
+  .results {
+    padding-top: 1.2rem;
   }
 </style>

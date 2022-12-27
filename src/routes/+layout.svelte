@@ -7,7 +7,7 @@
 <div class="app">
   <Header />
 
-  <main class="container">
+  <main>
     <slot />
   </main>
 
@@ -26,6 +26,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    max-width: 90rem;
     padding: 1rem;
     width: 100%;
     margin: 0 auto;
