@@ -3,20 +3,18 @@
   import { priceToText } from '$lib/utils/price-to-text';
   import AddToCartButton from './AddToCartButton.svelte';
 
-  export let index: number;
   export let product: DealProductProps;
   export let href: string = '/product/' + product.name;
 
-  const key = `deal-product-${index}`;
   const newPrice = product.price - (product.price * product.deal) / 100;
 </script>
 
 <li class="card position-relative">
   <!-- svelte-ignore a11y-missing-content -->
-  <a class="overlap" {href} aria-labelledby={key} />
+  <a class="overlap" {href} aria-label="Go to {product.name} page" />
   <img class="picture" src={product.picture} alt="" />
   <div class="card-info">
-    <strong id={key}>{product.name}</strong>
+    <strong>{product.name}</strong>
     <div class="price">
       <p class="sr-only">Before: {priceToText(product.price)}</p>
       <p class="old-price" aria-hidden={true}>{product.price}</p>

@@ -59,7 +59,7 @@
   <div class="col-9">
     <ul class="grid search-grid">
       {#each $page.data.products as product, index (index)}
-        <Product {product} {index} />
+        <Product {product} />
       {/each}
     </ul>
   </div>

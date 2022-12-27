@@ -3,19 +3,16 @@
   import { priceToText } from '$lib/utils/price-to-text';
   import AddToCartButton from './AddToCartButton.svelte';
 
-  export let index: number;
   export let product: TopSellerProductProps;
   export let href: string = '/product/' + product.name;
-
-  const key = `top-seller-product-${index}`;
 </script>
 
 <li class="card position-relative">
   <!-- svelte-ignore a11y-missing-content -->
-  <a class="overlap" {href} aria-labelledby={key} />
+  <a class="overlap" {href} aria-label="Go to {product.name} page" />
   <img class="picture" src={product.picture} alt="" />
   <div class="card-info">
-    <strong id={key}>{product.name}</strong>
+    <strong>{product.name}</strong>
     <p class="sr-only">{priceToText(product.price)}</p>
     <p class="price" aria-hidden={true}>{product.price}&euro;</p>
   </div>

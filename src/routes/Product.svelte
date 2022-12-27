@@ -2,19 +2,16 @@
   import AddToCartButton from './AddToCartButton.svelte';
   import type { Product } from '../lib/types/product';
 
-  export let index: number;
   export let product: Product;
-
-  const key = `product-${index}`;
 </script>
 
 {#if product !== undefined}
   <li class="card position-relative">
     <!-- svelte-ignore a11y-missing-content -->
-    <a class="overlap" href="/product/{product.name}" aria-labelledby={key} />
+    <a class="overlap" href="/product/{product.name}" aria-label="Go to {product.name} page" />
     <img class="picture" src={product.picture} alt="" />
     <div class="card-info">
-      <strong id={key}>{product.name}</strong>
+      <strong>{product.name}</strong>
       <p>Rating: {product.rating}</p>
       <p class="price">&euro;{product.price}</p>
       <p>Sold by <a href="/manufacturer/{product.manufacturer}" class="manufacturer">{product.manufacturer}</a></p>
