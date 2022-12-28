@@ -102,15 +102,14 @@
 
 <style lang="scss">
   .logo {
-    width: 3em;
-    height: 3em;
     display: flex;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
+    align-self: stretch;
+    margin: 0;
+    padding: 0 1rem 0 2rem;
     img {
-      width: 2em;
-      height: 2em;
+      width: 3rem;
       object-fit: contain;
     }
   }
@@ -143,7 +142,6 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: stretch;
-      padding-left: 1rem;
       padding-right: 2rem;
       background: var(--color-primary);
 
@@ -185,10 +183,11 @@
     background: var(--color-accent);
     ul {
       margin: 0 0 0 7rem;
+      gap: 1rem;
       > li {
         display: inline-block;
         padding: 0;
-        margin: 0 0.5em;
+        margin: 0;
         a {
           display: flex;
           align-items: center;
