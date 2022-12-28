@@ -60,6 +60,7 @@
           role="menuitem"
           aria-haspopup="true"
           aria-expanded={profileMenuOpen}
+          aria-label="Open profile menu"
         >
           <img src={profile} alt="" />
           Profile
@@ -77,6 +78,7 @@
           role="menuitem"
           aria-haspopup="true"
           aria-expanded={cartMenuOpen}
+          aria-label="Open cart menu"
         >
           <img src={cart} alt="" />
           Cart
