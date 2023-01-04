@@ -1,6 +1,7 @@
 # Nile
 
 ## Auteurs
+
 - [Tony Heng](https://github.com/TonyHg)
 - [Marvin Libam](https://github.com/reddcarp)
 - [Melchior Lozé](https://github.com/HydroMesange)
@@ -15,9 +16,12 @@ web de votre choix.
 ## Les maquettes
 
 ### Page d'accueil
-![Maquette de la page d'accueil](screenshots/homepage.png "Home Page")
+
+![Maquette de la page d'accueil](screenshots/homepage.png 'Home Page')
+
 ### Page de recherche
-![Maquette de la page de recherche](screenshots/searchpage.png "Search Page")
+
+![Maquette de la page de recherche](screenshots/searchpage.png 'Search Page')
 
 ### Détail des interactions
 
@@ -26,23 +30,23 @@ web de votre choix.
   cf. [seconde maquette](#page-de-recherche))
 - Clicker sur "Profile" ou l'icône associée ouvre un sous-menu
   - Les pages "Profile", "My Orders" et "Settings" ne sont pas à implémenter
-![](screenshots/Profile.png)
+    ![](screenshots/Profile.png)
 - Clicker sur "Cart" ou l'icône associée ouvre un sous-menu
   - Clicker n'importe où dans une card redirige vers la fiche du produit (page qui n'est pas à implémenter)
   - Clicker sur la poubelle supprime le produit du panier
-![](screenshots/cart.png)
+    ![](screenshots/cart.png)
 - Les pages "Deals", "Gift Cards", "Categories" et "Sell" ne sont pas à implémenter
 - Les cards de produit sont entièrement clickable et ouvre le détail du produit (page qui n'est pas à implémenter)
   - Clicker sur le bouton en jaune ajoute le produit au panier
 - Les cards de catégories sont entièrement clickable et redirigent vers la page de recherche avec le filtre sur la catégorie déjà set.
 - Aucune des pages dans les sections "Get to Know Us", "Make Money with Us" et "Let Us Help You" ne sont à implémenter
-![](screenshots/foot.png)
+  ![](screenshots/foot.png)
 
 #### Page de recherche
 
 - Clicker n'import où sur une card renvoi vers la page du produit
-    - Mais clicker sur le nom du vendeur renvoi vers la page du vendeur
-    - Les pages de détail de produit et de vendeur ne sont pas à implémenter
+  - Mais clicker sur le nom du vendeur renvoi vers la page du vendeur
+  - Les pages de détail de produit et de vendeur ne sont pas à implémenter
 - Clicker sur "Filter" filtre la liste des produits.
 
 ## Le dépôt
@@ -59,7 +63,7 @@ Vous trouverez dans ce dépôt plusieurs dossiers :
 │ └ *.png         # Les screenshots utilisées dans ce document
 │
 ├ src/
-│ ├ cart.js       # Export des fonctions utilisée pour gérer le panier (cf. [Gestion du panier](#gestion-du-panier))
+│ ├ cart.ts       # Export des fonctions utilisée pour gérer le panier (cf. [Gestion du panier](#gestion-du-panier))
 │ └ style.css     # Les couleurs et la police utilisés
 │
 └ README.md
@@ -70,7 +74,7 @@ Notez que les images des produits et des catégories se trouvent sous la forme d
 
 ### Gestion du panier
 
-Le fichier `./src/cart.js` exporte 4 fonctions :
+Le fichier `./src/cart.ts` exporte 4 fonctions :
 
 ```js
 // Récupérer le contenu du panier au format `["Laptop", "Tablet", ...]`
@@ -93,6 +97,7 @@ Vous êtes libre de modifier ces fonctions pour vos besoins et façons de faire.
 Vous trouverez les différentes couleurs ainsi que la police utilisée dans le fichier `./src/style.css`.
 Les couleurs sont définies en [_Custom Properties_](https://developer.mozilla.org/en-US/docs/Web/CSS/--*).
 e.g. :
+
 ```css
 .mon-truc-avec-couleur-primaire {
   background-color: var(--color-primary);
@@ -100,6 +105,7 @@ e.g. :
   border: 1px solid var(--color-accent);
 }
 ```
+
 La police est set par défaut sur tout le document et devrait être appliquée dès que vous importerez le fichier `style.css`.
 
 ## Travail à faire
@@ -108,12 +114,13 @@ La police est set par défaut sur tout le document et devrait être appliquée d
 
 Tous les bonus sont bienvenus (tant qu'ils ont un lien avec l'accessibilité), qu'ils soient techniques ou fonctionnels !
 Par exemple, vous pourriez :
-  - Implémenter des liens d'évitement (_Skip links_ en anglais)
-  - Implémenter des pages optionnelles (détail d'un produit, détail du panier, ...)
-  - Ajouter des fonctionnalités sur les pages existantes
-  - Implémenter des tests automatiques d'accessibilité
-    - cf. [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/), [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro/), [Google Lighthouse](https://github.com/GoogleChrome/lighthouse-ci), ...
-  - ...
+
+- Implémenter des liens d'évitement (_Skip links_ en anglais)
+- Implémenter des pages optionnelles (détail d'un produit, détail du panier, ...)
+- Ajouter des fonctionnalités sur les pages existantes
+- Implémenter des tests automatiques d'accessibilité
+  - cf. [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/), [@testing-library/vue](https://testing-library.com/docs/vue-testing-library/intro/), [Google Lighthouse](https://github.com/GoogleChrome/lighthouse-ci), ...
+- ...
 
 Vous êtes complètement libres du détail d'implémentation, vous pouvez modifier les fichiers donnés, utiliser les bibliothèques de votre choix, ... .
 
@@ -122,11 +129,12 @@ Vous êtes complètement libres du détail d'implémentation, vous pouvez modifi
 ## Rendu
 
 Par groupe :
-1) [Fork le repo sur GitLab](https://gitlab.cri.epita.fr/gauthier.fiorentino/mti2023-a11y-nile/-/forks/new)
-    - **Préfixer le *slug*** du repo par `mti-2023-a11y`
-2) Inviter chacun des membres du groupe
-3) Inviter @gauthier.fiorentino **avec le role *"Maintainer"*** (*Project Information > Members*)
-4) Ajouter à ce README.md la liste des bonus réalisés
+
+1. [Fork le repo sur GitLab](https://gitlab.cri.epita.fr/gauthier.fiorentino/mti2023-a11y-nile/-/forks/new)
+   - **Préfixer le _slug_** du repo par `mti-2023-a11y`
+2. Inviter chacun des membres du groupe
+3. Inviter @gauthier.fiorentino **avec le role _"Maintainer"_** (_Project Information > Members_)
+4. Ajouter à ce README.md la liste des bonus réalisés
 
 Le but de cet exercice n'est pas de faire du "_pixel perfect_",
 il n'est pas nécessaire de reproduire à l'identique la maquette (les espacements, ...)

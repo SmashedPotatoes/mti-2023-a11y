@@ -1,59 +1,75 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
+  import type { DealProductProps } from '$lib/interfaces/products/deal-product-props';
+  import type { TopSellerProductProps } from '$lib/interfaces/products/top-seller-product-props';
+  import Category from './Category.svelte';
+  import DealProduct from './DealProduct.svelte';
+  import TopSellerProduct from './TopSellerProduct.svelte';
+  import { getCategories, getDeals, getProducts, getTopSellers } from '../lib/services/products';
+
+  const deals = getDeals();
+  const products = getProducts();
+  const categories = getCategories();
+  const topSellerNames = getTopSellers();
+
+  const dealProducts: DealProductProps[] = deals.reduce((previous, deal) => {
+    const product = products.find((product) => product.name === deal.product);
+    if (product) previous.push({ ...product, ...deal } as DealProductProps);
+    return previous;
+  }, [] as DealProductProps[]);
+
+  const topSellers: TopSellerProductProps[] = topSellerNames.reduce((previous, name) => {
+    const product = products.find((product) => product.name === name);
+    if (product) previous.push({ ...product } as TopSellerProductProps);
+    return previous;
+  }, [] as TopSellerProductProps[]);
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+  <title>Nile - Home</title>
+  <meta name="description" content="Nile home page" />
 </svelte:head>
 
+<h1 class="sr-only">Nile Home Page</h1>
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+  <h2 class="sr-only">Deals</h2>
+  <ul class="grid product-grid">
+    {#each dealProducts as dealProduct, index (`deal-product-${index}`)}
+      <DealProduct product={dealProduct} />
+    {/each}
+  </ul>
+</section>
+<hr />
+<section>
+  <h2 class="sr-only">Categories</h2>
+  <ul class="grid category-grid">
+    {#each categories as category, index (`category-${index}`)}
+      <Category {category} />
+    {/each}
+  </ul>
+</section>
+<hr />
+<section>
+  <h2>Top Sellers</h2>
+  <ul class="grid product-grid">
+    {#each topSellers as topSeller, index (`top-seller-product-${index}`)}
+      <TopSellerProduct product={topSeller} />
+    {/each}
+  </ul>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
+  section {
+    display: flex;
+    flex-direction: column;
+  }
 
-	h1 {
-		width: 100%;
-	}
+  ul {
+    margin: 0;
+    padding: 0;
+  }
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+  h2:not(.sr-only) {
+    padding: 1rem;
+    font-weight: bold;
+  }
 </style>

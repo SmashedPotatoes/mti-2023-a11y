@@ -1,0 +1,110 @@
+// Import all of Bootstrap's CSS
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+:root {
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/var */
+  --color-primary: #131921;
+  --color-primary-text: white;
+  --color-primary-text-hover: #ceddec;
+
+  --color-secondary: #232f3e;
+  --color-secondary-text: white;
+
+  --color-accent: #2a3f58;
+
+  --color-deal: #cc0c39;
+  --color-deal-complementary: white;
+
+  --color-call-to-action: #ffd713;
+  --color-call-to-action-hover: #ffea82;
+  --color-call-to-action-complementary: black;
+
+  --color-error: #cc0c39;
+
+  --card-border: 1px solid #ddd;
+
+  font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+:root * {
+  box-sizing: border-box;
+}
+
+/* Some usefull CSS examples */
+
+.grid {
+  display: grid;
+  gap: 2ch;
+}
+
+.grid.product-grid {
+  /* 5 equal columns */
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid.search-grid {
+  /* 4 equal columns */
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid.category-grid {
+  /* 3 equal columns */
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.align-items {
+  display: flex;
+}
+
+.picture {
+  object-fit: contain;
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+.overlap {
+  /* Remember to set `position: relative` on the parent element */
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  transition: scale 100ms ease-in-out;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card:hover,
+.card:focus-visible {
+  scale: 1.03;
+  z-index: 1;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  padding: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--color-primary-text);
+}

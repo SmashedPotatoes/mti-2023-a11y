@@ -1,129 +1,274 @@
 <script>
-	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+  import { page } from '$app/stores';
+  import cart from '$lib/images/cart.svg';
+  import logo from '$lib/images/nile-light.svg';
+  import logoFallback from '$lib/images/nile.svg';
+  import profile from '$lib/images/profile.svg';
+  import search from '$lib/images/search.svg';
+  import CartPopup from './CartPopup.svelte';
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Deals', href: '/deals' },
+    { name: 'Gift Cards', href: '/gift-cards' },
+    { name: 'Categories', href: '/categories' },
+    { name: 'Sell', href: '/sell' },
+  ];
+
+  let profileMenuOpen = false;
+  let cartMenuOpen = false;
+  function toggleProfileMenu() {
+    profileMenuOpen = !profileMenuOpen;
+    cartMenuOpen = false;
+  }
+
+  function toggleCartMenu() {
+    cartMenuOpen = !cartMenuOpen;
+    profileMenuOpen = false;
+  }
+
+  function onProfileMenuBlur() {
+    setTimeout(() => {
+      profileMenuOpen = false;
+    }, 200);
+  }
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
+  <div>
+    <a href="/" class="logo" aria-label="Go to Nile home page">
+      <picture>
+        <source srcset={logo} type="image/svg+xml" />
+        <img src={logoFallback} alt="Nile logo" />
+      </picture>
+    </a>
+    <form action="/search">
+      <input
+        id="search-bar"
+        name="q"
+        type="search"
+        placeholder="Navigate the nile..."
+        aria-placeholder="Navigate the nile..."
+      />
+      <label for="search-bar" class="sr-only">Enter the query to search for a product.</label>
+      <button type="submit" aria-label="Search"><img src={search} alt="" /></button>
+    </form>
+    <ul role="menu">
+      <li role="none">
+        <button
+          class="haspopup"
+          on:click={toggleProfileMenu}
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded={profileMenuOpen}
+          aria-label="Open profile menu"
+        >
+          <img src={profile} alt="" />
+          Profile
+        </button>
+        <ul role="menu" aria-label="Profile" class="popup">
+          <li role="none"><a role="menuitem" href="/profile/profile">Profile</a></li>
+          <li role="none"><a role="menuitem" href="/profile/orders">My Orders</a></li>
+          <li role="none"><a role="menuitem" href="/profile/settings">Settings</a></li>
+        </ul>
+      </li>
+      <li role="none">
+        <button
+          class="haspopup"
+          on:click={toggleCartMenu}
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded={cartMenuOpen}
+          aria-label="Open cart menu"
+        >
+          <img src={cart} alt="" />
+          Cart
+        </button>
+        <section aria-label="Your cart" class="popup" id="cart-popup">
+          <CartPopup />
+        </section>
+      </li>
+    </ul>
+  </div>
+  <nav>
+    <ul>
+      {#each navLinks as link, index (`${link.name}-${index}}`)}
+        <li aria-current={$page.url.pathname === link.href}>
+          <a href={link.href}>
+            {link.name}
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </nav>
 </header>
 
-<style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
+<style lang="scss">
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    margin: 0;
+    padding: 0 1rem 0 2rem;
+    img {
+      width: 3rem;
+      object-fit: contain;
+    }
+  }
 
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
+  button {
+    background: none;
+    border: none;
+    color: var(--color-primary-text);
+    margin: 0;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0.5rem;
+    }
+  }
 
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
+  button:hover,
+  button[aria-expanded='true'] {
+    background-color: var(--color-accent);
+  }
 
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+      padding-right: 2rem;
+      background: var(--color-primary);
 
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
+      > a {
+        margin: auto;
+      }
+    }
 
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
+    form {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+      gap: 0.5rem;
+      margin: 1rem;
+      input {
+        flex: 1;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+      }
 
-	path {
-		fill: var(--background);
-	}
+      button {
+        width: fit-content;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 100%;
 
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
+        img {
+          margin: 0;
+        }
+      }
+    }
+  }
 
-	li {
-		position: relative;
-		height: 100%;
-	}
+  nav {
+    background: var(--color-accent);
+    ul {
+      margin: 0 0 0 7rem;
+      gap: 1rem;
+      > li {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        a {
+          display: flex;
+          align-items: center;
+          padding: 1rem;
+          color: var(--color-primary-text);
+          border-bottom: 3px solid transparent;
+          font-weight: 700;
+          font-size: 1rem;
+          text-decoration: none;
+          transition: color 150ms ease-out;
+        }
+      }
 
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
+      > li[aria-current='true'] a {
+        border-color: rgb(255, 153, 0);
+      }
 
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
+      > li:hover a {
+        color: var(--color-primary-text-hover);
+        border-color: var(--color-primary-text-hover);
+      }
+    }
+  }
 
-	a:hover {
-		color: var(--color-theme-1);
-	}
+  ul,
+  .popup {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 0;
+    > li {
+      padding: 0.4rem;
+    }
+  }
+
+  .haspopup {
+    position: relative;
+    &[aria-expanded='true'] + .popup {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      background: var(--color-primary);
+      z-index: 10;
+      padding: 0;
+      border-radius: 0.5rem 0.5rem;
+      margin-top: 1.2rem;
+
+      li {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        a {
+          width: 100%;
+          height: 100%;
+          padding: 1rem 0.7rem;
+          color: var(--color-primary-text);
+          text-decoration: none;
+          transition: color 150ms ease-out;
+          &:hover {
+            background: var(--color-secondary);
+          }
+        }
+      }
+      li:first-child a {
+        border-radius: 0.5rem 0.5rem 0 0;
+      }
+      li:last-child a {
+        border-radius: 0 0 0.5rem 0.5rem;
+      }
+    }
+    &[aria-expanded='false'] + .popup {
+      display: none;
+    }
+  }
+
+  #cart-popup {
+    width: max-content;
+    min-width: 400px;
+    right: 1rem;
+  }
 </style>
