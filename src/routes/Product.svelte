@@ -12,7 +12,7 @@
     <img class="picture" src={product.picture} alt="" />
     <div class="card-info">
       <strong>{product.name}</strong>
-      <p>Rating: {product.rating}</p>
+      <p>Rating: <span class="rating">{product.rating.toFixed(1)}<sub>/5</sub></span></p>
       <p class="price">{product.price}<sup>&euro;</sup></p>
       <small>
         Sold by
@@ -25,6 +25,11 @@
 {/if}
 
 <style>
+  .rating {
+    background-color: var(--color-call-to-action-hover);
+    padding: 0.2rem;
+    font-weight: bold;
+  }
   .price {
     margin: 0;
     font-size: x-large;
