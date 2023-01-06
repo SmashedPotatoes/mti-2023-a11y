@@ -204,7 +204,7 @@
       }
 
       > li[aria-current='true'] a {
-        border-color: rgb(255, 153, 0);
+        border-color: var(--color-nile-accent);
       }
 
       > li:hover a {
