@@ -15,8 +15,8 @@
 <div class="row">
   <h1 class="sr-only">Search product page</h1>
   <section class="col-3">
+    <h2 class="sr-only">Filters</h2>
     <form>
-      <h2 class="sr-only">Filters</h2>
       <fieldset class="form-group">
         <legend>Manufacturer</legend>
         {#each manufacturers as manufacturer (manufacturer)}
