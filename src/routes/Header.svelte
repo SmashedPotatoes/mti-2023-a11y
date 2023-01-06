@@ -42,13 +42,7 @@
       </picture>
     </a>
     <form action="/search">
-      <input
-        id="search-bar"
-        name="q"
-        type="search"
-        placeholder="Navigate the nile..."
-        aria-placeholder="Navigate the nile..."
-      />
+      <input id="search-bar" name="q" type="search" placeholder="Navigate the nile..." />
       <label for="search-bar" class="sr-only">Enter the query to search for a product.</label>
       <button type="submit" aria-label="Search"><img src={search} alt="" /></button>
     </form>
